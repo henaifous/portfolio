@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Togglio — Pomodoro Timer &amp; Tasks</title>
+    <meta name="description" content="Boost focus and productivity with Pomodoro sessions, task tracking, and custom timers. Togglio is a focused iPhone productivity app built to help you start, stay in flow, and finish strong.">
+    <script>
+        (function () {
+            try {
+                var mode = localStorage.getItem('site-theme-mode') || 'system';
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var resolved = mode === 'dark' || (mode === 'system' && prefersDark) ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme-mode', mode);
+                document.documentElement.setAttribute('data-theme', resolved);
+                document.documentElement.style.colorScheme = resolved;
+            } catch (error) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="nav" id="nav">
+        <div class="nav__inner container">
+            <a href="#" class="nav__logo">
+                <img src="assets/images/logo.png" alt="Togglio" class="nav__logo-img">
+                Togglio
+            </a>
+            <ul class="nav__links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="../index.html">Portfolio</a></li>
+            </ul>
+            <div class="theme-switcher theme-switcher--nav" role="group" aria-label="Color theme">
+                <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+            </div>
+            <a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743" target="_blank" rel="noopener" class="btn btn--sm btn--primary nav__cta">Download</a>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="../index.html">Portfolio</a></li>
+            <li class="mobile-menu__theme">
+                <div class="theme-switcher theme-switcher--mobile" role="group" aria-label="Color theme">
+                    <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+            </li>
+            <li><a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743" target="_blank" rel="noopener" class="btn btn--primary btn--block">Download</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+        <section class="hero" id="hero">
+            <div class="hero__bg-glow"></div>
+            <div class="hero__bg-grid"></div>
+            <div class="container hero__inner">
+                <div class="hero__content reveal">
+                    <span class="badge">Pomodoro Timer &amp; Tasks</span>
+                    <h1 class="hero__title">
+                        Focus better.<br>
+                        <span class="gradient-text">Finish stronger.</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Togglio brings Pomodoro sessions, task planning, custom
+                        timers, and progress tracking into one clean iPhone
+                        experience built to help you beat procrastination and
+                        keep momentum.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            Download on App Store
+                        </a>
+                        <a href="../index.html" class="btn btn--ghost btn--lg">View Portfolio</a>
+                    </div>
+                    <p class="hero__portfolio-note">Connected to the broader iOS portfolio experience, just like Gymmetric.</p>
+                    <div class="hero__stats">
+                        <div class="hero__stat">
+                            <span class="hero__stat-value counter" data-target="25">0</span>
+                            <span class="hero__stat-label">Minute focus block</span>
+                        </div>
+                        <div class="hero__stat-divider"></div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-value counter" data-target="5">0</span>
+                            <span class="hero__stat-label">Minute reset break</span>
+                        </div>
+                        <div class="hero__stat-divider"></div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-value counter" data-target="0">0</span>
+                            <span class="hero__stat-label">Data collected</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__visual reveal reveal--delay-1">
+                    <div class="phone-mockup phone-mockup--asset togglio-mockup">
+                        <img src="assets/images/mockup.png" alt="Togglio app mockup showing Pomodoro sessions, tasks, and productivity flow" class="phone-mockup__asset">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__scroll-hint">
+                <div class="hero__scroll-mouse">
+                    <div class="hero__scroll-dot"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="badge">Focus Features</span>
+                    <h2 class="section-title">Everything you need to<br><span class="gradient-text">stay on track</span></h2>
+                    <p class="section-subtitle">Togglio combines structured focus sessions with task clarity so starting feels easier and finishing feels more rewarding.</p>
+                </div>
+
+                <div class="features__grid">
+                    <div class="feature-card reveal">
+                        <div class="feature-card__icon" style="--accent: #d95b43;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Pomodoro Sessions</h3>
+                        <p class="feature-card__desc">Work in clear focus and break intervals that help you begin quickly, keep momentum, and reduce procrastination.</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-card__icon" style="--accent: #ef8f52;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Task Management</h3>
+                        <p class="feature-card__desc">Create, organize, and prioritize tasks so every session has a clear purpose and you always know the next thing to do.</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-card__icon" style="--accent: #0f7b7e;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Progress Tracking</h3>
+                        <p class="feature-card__desc">Watch your productivity grow over time with a simple progress view that makes consistency visible and motivating.</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-card__icon" style="--accent: #efbf56;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Custom Timers</h3>
+                        <p class="feature-card__desc">Adjust session lengths, break timing, and your rhythm so the app fits your working style instead of forcing one pattern.</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-card__icon" style="--accent: #13313f;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Themes And Flow</h3>
+                        <p class="feature-card__desc">A clean interface, customizable feel, and lightweight controls help you stay in the work instead of managing the tool.</p>
+                    </div>
+
+                    <div class="feature-card reveal">
+                        <div class="feature-card__icon" style="--accent: #8f3e2c;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Privacy By Default</h3>
+                        <p class="feature-card__desc">The App Store listing currently indicates that Togglio does not collect data, keeping the experience simple and privacy-conscious.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="badge">Simple Workflow</span>
+                    <h2 class="section-title">A calm system for<br><span class="gradient-text">getting things done</span></h2>
+                </div>
+
+                <div class="steps">
+                    <div class="step reveal">
+                        <div class="step__number">01</div>
+                        <div class="step__content">
+                            <div class="step__icon-wrap">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d95b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                            </div>
+                            <h3 class="step__title">Choose Your Task</h3>
+                            <p class="step__desc">Start with a clear task so each focus block has a goal and your attention is pointed in one direction.</p>
+                        </div>
+                    </div>
+
+                    <div class="step__connector reveal">
+                        <svg width="100" height="40" viewBox="0 0 100 40">
+                            <path d="M0,20 Q50,0 100,20" fill="none" stroke="#d95b43" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+                        </svg>
+                    </div>
+
+                    <div class="step reveal">
+                        <div class="step__number">02</div>
+                        <div class="step__content">
+                            <div class="step__icon-wrap">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef8f52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                            <h3 class="step__title">Run The Timer</h3>
+                            <p class="step__desc">Work inside structured Pomodoro intervals, take short breaks, and return with just enough reset to keep momentum high.</p>
+                        </div>
+                    </div>
+
+                    <div class="step__connector reveal">
+                        <svg width="100" height="40" viewBox="0 0 100 40">
+                            <path d="M0,20 Q50,40 100,20" fill="none" stroke="#d95b43" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+                        </svg>
+                    </div>
+
+                    <div class="step reveal">
+                        <div class="step__number">03</div>
+                        <div class="step__content">
+                            <div class="step__icon-wrap">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0f7b7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                            </div>
+                            <h3 class="step__title">Review Your Progress</h3>
+                            <p class="step__desc">Look back at sessions, output, and consistency so your focus system becomes easier to repeat and improve over time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="showcase">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="badge">Designed For Focus</span>
+                    <h2 class="section-title">A focused productivity app<br><span class="gradient-text">without the clutter</span></h2>
+                    <p class="section-subtitle">Togglio is built for study sessions, deep work, habits, and everyday task flow with a calmer rhythm than overloaded productivity apps.</p>
+                </div>
+                <div class="showcase__cards">
+                    <div class="showcase-card reveal">
+                        <div class="showcase-card__emoji">🍅</div>
+                        <h4>Pomodoro Rhythm</h4>
+                        <p>Structured work and break intervals help you begin faster and keep procrastination from taking over.</p>
+                    </div>
+                    <div class="showcase-card reveal">
+                        <div class="showcase-card__emoji">✅</div>
+                        <h4>Task Clarity</h4>
+                        <p>Tasks and timer live together, so you always know what to focus on during the current session.</p>
+                    </div>
+                    <div class="showcase-card reveal">
+                        <div class="showcase-card__emoji">⏱️</div>
+                        <h4>Custom Timing</h4>
+                        <p>Adjust session lengths and timer behavior to fit your own focus habits instead of a rigid default.</p>
+                    </div>
+                    <div class="showcase-card reveal">
+                        <div class="showcase-card__emoji">📈</div>
+                        <h4>Progress View</h4>
+                        <p>Track productivity over time and build consistency with simple insight into how your sessions add up.</p>
+                    </div>
+                    <div class="showcase-card reveal">
+                        <div class="showcase-card__emoji">📱</div>
+                        <h4>Latest iOS Support</h4>
+                        <p>The current App Store listing highlights support for the latest iOS version with smoother performance.</p>
+                    </div>
+                    <div class="showcase-card reveal">
+                        <div class="showcase-card__emoji">🔒</div>
+                        <h4>Data Not Collected</h4>
+                        <p>The App Store privacy label currently indicates that Togglio does not collect data from the app.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="creator-bridge" id="creator-bridge">
+            <div class="container">
+                <div class="creator-bridge__card reveal">
+                    <span class="badge">Portfolio Connected</span>
+                    <h2 class="section-title">Togglio belongs to the same product portfolio ecosystem as Gymmetric.</h2>
+                    <p class="section-subtitle">Use the portfolio to move between products, see the broader iOS work, and keep both app websites connected through one shared design family.</p>
+                    <div class="creator-bridge__actions">
+                        <a href="../index.html" class="btn btn--primary btn--lg">Open Portfolio</a>
+                        <a href="../index.html#apps" class="btn btn--ghost btn--lg">See All Apps</a>
+                        <a href="../Gymmetric/index.html" class="btn btn--outline btn--lg">Visit Fitness App</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="privacy" id="privacy">
+            <div class="container">
+                <div class="privacy__inner reveal">
+                    <div class="privacy__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d95b43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    </div>
+                    <h2 class="section-title">Privacy Snapshot</h2>
+                    <p class="privacy__intro">The current App Store privacy label for Togglio indicates that the app does not collect data, keeping the focus on work rather than user tracking.</p>
+
+                    <div class="privacy__grid">
+                        <div class="privacy__card">
+                            <h4>🔒 Data Not Collected</h4>
+                            <p>The current App Store listing indicates that Togglio does not collect data from the app.</p>
+                        </div>
+                        <div class="privacy__card">
+                            <h4>🚫 No Account Layer</h4>
+                            <p>The app experience is centered around timer and task flow without forcing a sign-up-first workflow.</p>
+                        </div>
+                        <div class="privacy__card">
+                            <h4>📱 Built For iPhone</h4>
+                            <p>Togglio is presented as an iPhone-first productivity app focused on calm sessions, tasks, and progress.</p>
+                        </div>
+                        <div class="privacy__card">
+                            <h4>📄 Full Privacy Page</h4>
+                            <p>Open the dedicated privacy page for a clearer summary built around the current App Store privacy information.</p>
+                        </div>
+                    </div>
+
+                    <p class="privacy__footer">For the full privacy summary and app-store-based details, visit the dedicated privacy page.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="download">
+            <div class="cta__glow"></div>
+            <div class="container">
+                <div class="cta__inner reveal">
+                    <h2 class="section-title">Need a cleaner way to manage focus,<br><span class="gradient-text">timers, and tasks?</span></h2>
+                    <p class="section-subtitle">Download Togglio and build a calmer productivity rhythm with Pomodoro sessions, task tracking, and simple progress insight.</p>
+                    <a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743" target="_blank" rel="noopener" class="btn btn--primary btn--lg btn--app-store">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        Download on the App Store
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <img src="assets/images/logo.png" alt="Togglio" class="footer__logo-img">
+                    <span>Togglio</span>
+                </div>
+                <div class="footer__links">
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="../index.html">Portfolio</a>
+                </div>
+                <p class="footer__copy">&copy; 2026 Togglio. Part of a connected iOS product portfolio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

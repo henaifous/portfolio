@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Togglio</title>
+    <meta name="description" content="Togglio privacy summary based on the current App Store listing, including the current data-not-collected label and a simple overview of how the app is presented.">
+    <script>
+        (function () {
+            try {
+                var mode = localStorage.getItem('site-theme-mode') || 'system';
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var resolved = mode === 'dark' || (mode === 'system' && prefersDark) ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme-mode', mode);
+                document.documentElement.setAttribute('data-theme', resolved);
+                document.documentElement.style.colorScheme = resolved;
+            } catch (error) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/privacy.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body class="privacy-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="nav nav--scrolled" id="nav">
+        <div class="nav__inner container">
+            <a href="index.html" class="nav__logo">
+                <img src="assets/images/logo.png" alt="Togglio" class="nav__logo-img">
+                Togglio
+            </a>
+            <ul class="nav__links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="privacy.html" class="active">Privacy</a></li>
+                <li><a href="../index.html">Portfolio</a></li>
+            </ul>
+            <div class="theme-switcher theme-switcher--nav" role="group" aria-label="Color theme">
+                <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+            </div>
+            <a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743" target="_blank" rel="noopener" class="btn btn--sm btn--primary nav__cta">Download</a>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="../index.html">Portfolio</a></li>
+            <li class="mobile-menu__theme">
+                <div class="theme-switcher theme-switcher--mobile" role="group" aria-label="Color theme">
+                    <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+            </li>
+            <li><a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743" target="_blank" rel="noopener" class="btn btn--primary btn--block">Download</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+        <section class="priv-hero">
+            <div class="priv-hero__glow priv-hero__glow--1"></div>
+            <div class="priv-hero__glow priv-hero__glow--2"></div>
+            <div class="hero__bg-grid"></div>
+            <div class="container priv-hero__inner">
+                <div class="priv-hero__breadcrumb reveal">
+                    <a href="index.html">Home</a>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    <span>Privacy Policy</span>
+                </div>
+                <div class="priv-hero__content reveal reveal--delay-1">
+                    <div class="priv-hero__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#d95b43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <polyline points="9 12 11 14 15 10"/>
+                        </svg>
+                    </div>
+                    <span class="badge">Privacy Summary</span>
+                    <h1 class="priv-hero__title">Privacy <span class="gradient-text">Policy</span></h1>
+                    <p class="priv-hero__subtitle">This page summarizes the current privacy expectations reflected in the App Store listing for Togglio, including the current Data Not Collected label.</p>
+                    <div class="priv-hero__meta">
+                        <span class="priv-meta-pill">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            Last reviewed: April 21, 2026
+                        </span>
+                        <span class="priv-meta-pill">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Current App Store label: Data Not Collected
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="priv-summary">
+            <div class="container">
+                <div class="priv-summary__grid">
+                    <div class="priv-summary__item reveal">
+                        <div class="priv-summary__icon" style="--c: #d95b43;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Data Not Collected</h4>
+                            <p>Current App Store privacy label</p>
+                        </div>
+                    </div>
+                    <div class="priv-summary__item reveal reveal--delay-1">
+                        <div class="priv-summary__icon" style="--c: #ef8f52;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <div>
+                            <h4>Focus First</h4>
+                            <p>Timer and tasks without extra friction</p>
+                        </div>
+                    </div>
+                    <div class="priv-summary__item reveal reveal--delay-2">
+                        <div class="priv-summary__icon" style="--c: #0f7b7e;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div>
+                            <h4>No Sign-Up Wall</h4>
+                            <p>Built around a lightweight app flow</p>
+                        </div>
+                    </div>
+                    <div class="priv-summary__item reveal reveal--delay-3">
+                        <div class="priv-summary__icon" style="--c: #efbf56;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+                        </div>
+                        <div>
+                            <h4>Delete Anytime</h4>
+                            <p>Removing the app removes local app data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="priv-content">
+            <div class="container">
+                <div class="priv-content__inner">
+                    <nav class="priv-toc" id="privToc">
+                        <p class="priv-toc__label">On this page</p>
+                        <ul>
+                            <li><a href="#overview" class="priv-toc__link active">Overview</a></li>
+                            <li><a href="#collection" class="priv-toc__link">Data Collection</a></li>
+                            <li><a href="#accounts" class="priv-toc__link">Accounts</a></li>
+                            <li><a href="#usage" class="priv-toc__link">App Usage</a></li>
+                            <li><a href="#platform" class="priv-toc__link">Platform Services</a></li>
+                            <li><a href="#deletion" class="priv-toc__link">Deletion</a></li>
+                            <li><a href="#contact" class="priv-toc__link">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="priv-sections">
+                        <div class="priv-section reveal" id="overview">
+                            <div class="priv-section__header">
+                                <div class="priv-section__icon" style="--c: #d95b43;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v.01"/><path d="M12 8v5"/></svg>
+                                </div>
+                                <h2 class="priv-section__title">Overview</h2>
+                            </div>
+                            <div class="priv-section__body">
+                                <p>This page is a concise privacy summary built from the current App Store listing for Togglio. It is intended to explain the current privacy posture visible from that listing in clearer product-language.</p>
+                                <div class="priv-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d95b43" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    The current App Store privacy label indicates that Togglio does <strong>not collect data</strong>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="priv-section reveal" id="collection">
+                            <div class="priv-section__header">
+                                <div class="priv-section__icon" style="--c: #ef8f52;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <h2 class="priv-section__title">Data Collection</h2>
+                            </div>
+                            <div class="priv-section__body">
+                                <p>At the time of writing, the App Store listing for Togglio shows the privacy label <strong>Data Not Collected</strong>.</p>
+                                <p>That means the listing does not indicate the app collects user data for tracking, profiling, or storage by the developer.</p>
+                                <div class="priv-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d95b43" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Based on the current App Store label, Togglio is presented as a <strong>no data collected</strong> app.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="priv-section reveal" id="accounts">
+                            <div class="priv-section__header">
+                                <div class="priv-section__icon" style="--c: #0f7b7e;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                                <h2 class="priv-section__title">Accounts And Sign-In</h2>
+                            </div>
+                            <div class="priv-section__body">
+                                <p>The current product positioning of Togglio focuses on timer sessions, tasks, and progress rather than an account-heavy workflow.</p>
+                                <p>This website presents Togglio as a lightweight productivity tool designed to help users start quickly and stay in flow.</p>
+                            </div>
+                        </div>
+
+                        <div class="priv-section reveal" id="usage">
+                            <div class="priv-section__header">
+                                <div class="priv-section__icon" style="--c: #efbf56;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                </div>
+                                <h2 class="priv-section__title">App Usage</h2>
+                            </div>
+                            <div class="priv-section__body">
+                                <p>Togglio is described on the App Store as a productivity app for Pomodoro sessions, task organization, custom timers, and progress tracking.</p>
+                                <p>The intended experience is centered on helping users focus, work through timed intervals, and review progress with less friction.</p>
+                            </div>
+                        </div>
+
+                        <div class="priv-section reveal" id="platform">
+                            <div class="priv-section__header">
+                                <div class="priv-section__icon" style="--c: #8f3e2c;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                                </div>
+                                <h2 class="priv-section__title">Platform Services</h2>
+                            </div>
+                            <div class="priv-section__body">
+                                <p>Togglio is distributed through the Apple App Store, and the privacy label shown there is part of Apple's app privacy framework.</p>
+                                <p>If the App Store listing changes in the future, the privacy expectations for the app may change with it.</p>
+                                <div class="priv-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d95b43" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    This page reflects the <strong>current App Store information</strong>, not a promise about any future version.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="priv-section reveal" id="deletion">
+                            <div class="priv-section__header">
+                                <div class="priv-section__icon" style="--c: #d95b43;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+                                </div>
+                                <h2 class="priv-section__title">Deletion</h2>
+                            </div>
+                            <div class="priv-section__body">
+                                <p>If you remove Togglio from your device, any local app data on that device is removed with the app itself.</p>
+                                <p>Because the current App Store privacy label indicates no data collected, this website does not describe a separate server-side deletion flow.</p>
+                            </div>
+                        </div>
+
+                        <div class="priv-section reveal" id="contact">
+                            <div class="priv-section__header">
+                                <div class="priv-section__icon" style="--c: #0f7b7e;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                </div>
+                                <h2 class="priv-section__title">Contact</h2>
+                            </div>
+                            <div class="priv-section__body">
+                                <p>If you want to review the current listing yourself or reach out through the app ecosystem around Togglio, the App Store page is the best starting point.</p>
+                                <a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743" target="_blank" rel="noopener" class="priv-contact-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                    Open App Store Listing
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <img src="assets/images/logo.png" alt="Togglio" class="footer__logo-img">
+                    <span>Togglio</span>
+                </div>
+                <div class="footer__links">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="../index.html">Portfolio</a>
+                </div>
+                <p class="footer__copy">&copy; 2026 Togglio. Part of a connected iOS product portfolio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/privacy.js"></script>
+</body>
+</html>

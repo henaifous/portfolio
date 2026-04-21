@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Gymmetric</title>
+    <meta name="description" content="Gymmetric's privacy policy. Your workout data stays on your device, with no accounts and no advertising-based tracking.">
+    <script>
+        (function () {
+            try {
+                var mode = localStorage.getItem('site-theme-mode') || 'system';
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var resolved = mode === 'dark' || (mode === 'system' && prefersDark) ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme-mode', mode);
+                document.documentElement.setAttribute('data-theme', resolved);
+                document.documentElement.style.colorScheme = resolved;
+            } catch (error) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/privacy.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body class="privacy-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <!-- ======================== NAV ======================== -->
+    <nav class="nav nav--scrolled" id="nav">
+        <div class="nav__inner container">
+            <a href="index.html" class="nav__logo">
+                <img src="assets/images/logo.png" alt="Gymmetric" class="nav__logo-img">
+                Gymmetric
+            </a>
+            <ul class="nav__links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="privacy.html" class="active">Privacy</a></li>
+                <li><a href="../index.html">Portfolio</a></li>
+            </ul>
+            <div class="theme-switcher theme-switcher--nav" role="group" aria-label="Color theme">
+                <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+            </div>
+            <a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413" target="_blank" rel="noopener" class="btn btn--sm btn--primary nav__cta">Download</a>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="../index.html">Portfolio</a></li>
+            <li class="mobile-menu__theme">
+                <div class="theme-switcher theme-switcher--mobile" role="group" aria-label="Color theme">
+                    <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+            </li>
+            <li><a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413" target="_blank" rel="noopener" class="btn btn--primary btn--block">Download</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+    <!-- ======================== PAGE HERO ======================== -->
+    <section class="priv-hero">
+        <div class="priv-hero__glow priv-hero__glow--1"></div>
+        <div class="priv-hero__glow priv-hero__glow--2"></div>
+        <div class="hero__bg-grid"></div>
+        <div class="container priv-hero__inner">
+            <div class="priv-hero__breadcrumb reveal">
+                <a href="index.html">Home</a>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>Privacy Policy</span>
+            </div>
+            <div class="priv-hero__content reveal reveal--delay-1">
+                <div class="priv-hero__icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                </div>
+                <span class="badge">Privacy First</span>
+                <h1 class="priv-hero__title">Privacy <span class="gradient-text">Policy</span></h1>
+                <p class="priv-hero__subtitle">Gymmetric is designed from the ground up with your privacy in mind. No accounts, no unnecessary data collection, and no compromises on ownership.</p>
+                <div class="priv-hero__meta">
+                    <span class="priv-meta-pill">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        Last updated: March 2026
+                    </span>
+                    <span class="priv-meta-pill">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        iOS App Only
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== QUICK SUMMARY ======================== -->
+    <section class="priv-summary">
+        <div class="container">
+            <div class="priv-summary__grid">
+                <div class="priv-summary__item reveal">
+                    <div class="priv-summary__icon" style="--c: #6BD18A;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <div>
+                        <h4>On-Device Only</h4>
+                        <p>All data stays on your iPhone</p>
+                    </div>
+                </div>
+                <div class="priv-summary__item reveal reveal--delay-1">
+                    <div class="priv-summary__icon" style="--c: #9ADCB0;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div>
+                        <h4>Firebase Analytics</h4>
+                        <p>Anonymous usage stats only</p>
+                    </div>
+                </div>
+                <div class="priv-summary__item reveal reveal--delay-2">
+                    <div class="priv-summary__icon" style="--c: #42AD6B;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div>
+                        <h4>No Account</h4>
+                        <p>Fully anonymous usage</p>
+                    </div>
+                </div>
+                <div class="priv-summary__item reveal reveal--delay-3">
+                    <div class="priv-summary__icon" style="--c: #C5EDD5;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+                    </div>
+                    <div>
+                        <h4>Delete Instantly</h4>
+                        <p>Uninstall = data gone</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== PRIVACY DETAILS ======================== -->
+    <section class="priv-content">
+        <div class="container">
+            <div class="priv-content__inner">
+
+                <!-- Sidebar TOC -->
+                <nav class="priv-toc" id="privToc">
+                    <p class="priv-toc__label">On this page</p>
+                    <ul>
+                        <li><a href="#data-storage" class="priv-toc__link active">Data Storage</a></li>
+                        <li><a href="#no-account" class="priv-toc__link">No Account</a></li>
+                        <li><a href="#network" class="priv-toc__link">Network Usage</a></li>
+                        <li><a href="#purchases" class="priv-toc__link">In-App Purchases</a></li>
+                        <li><a href="#analytics" class="priv-toc__link">Analytics &amp; Crashes</a></li>
+                        <li><a href="#deletion" class="priv-toc__link">Data Deletion</a></li>
+                        <li><a href="#contact" class="priv-toc__link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Main content -->
+                <div class="priv-sections">
+
+                    <div class="priv-section reveal" id="data-storage">
+                        <div class="priv-section__header">
+                            <div class="priv-section__icon" style="--c: #6BD18A;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                            </div>
+                            <h2 class="priv-section__title">Data Storage</h2>
+                        </div>
+                        <div class="priv-section__body">
+                            <p>All workout data — routines, sessions, sets, and exercise logs — is stored <strong>locally on your device</strong> using Apple's SwiftData framework.</p>
+                            <p>Nothing is transmitted to, or stored on, any external server controlled by us or any third party. Your data never leaves your iPhone.</p>
+                            <div class="priv-highlight">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Gymmetric uses Apple's <strong>SwiftData</strong> framework — data is persisted in a local SQLite-backed store, inaccessible to any external process.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="priv-section reveal" id="no-account">
+                        <div class="priv-section__header">
+                            <div class="priv-section__icon" style="--c: #9ADCB0;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                            <h2 class="priv-section__title">No Account Required</h2>
+                        </div>
+                        <div class="priv-section__body">
+                            <p>Gymmetric does not require you to create an account, provide an email address, or sign in with any service — including Apple ID, Google, or Facebook.</p>
+                            <p>You can use every feature of the app completely anonymously from the moment you download it.</p>
+                            <div class="priv-highlight">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                No registration, no email, no identity — just your workouts.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="priv-section reveal" id="network">
+                        <div class="priv-section__header">
+                            <div class="priv-section__icon" style="--c: #42AD6B;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6s4-6 11-6 11 6 11 6"/><path d="M1 12s4-6 11-6 11 6 11 6"/><path d="M1 18s4-6 11-6 11 6 11 6"/></svg>
+                            </div>
+                            <h2 class="priv-section__title">Network Usage</h2>
+                        </div>
+                        <div class="priv-section__body">
+                            <p>The app may fetch exercise demonstration images and GIFs from the internet. These network requests are made solely to display visual content in the app.</p>
+                            <p>These requests do <strong>not</strong> include any personal data, workout history, device identifiers, or any information that could be used to identify you.</p>
+                            <div class="priv-highlight">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Network requests are limited to loading exercise media — nothing personal is ever included.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="priv-section reveal" id="purchases">
+                        <div class="priv-section__header">
+                            <div class="priv-section__icon" style="--c: #C5EDD5;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                            </div>
+                            <h2 class="priv-section__title">In-App Purchases</h2>
+                        </div>
+                        <div class="priv-section__body">
+                            <p>Subscriptions and in-app purchases are handled entirely through Apple's <strong>StoreKit</strong> framework. All payment processing is managed directly by Apple.</p>
+                            <p>Gymmetric never sees, receives, or stores your payment details, credit card information, or billing address. We only receive confirmation of a successful purchase from Apple.</p>
+                            <div class="priv-highlight">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Payment data is handled exclusively by Apple. We never touch it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="priv-section reveal" id="analytics">
+                        <div class="priv-section__header">
+                            <div class="priv-section__icon" style="--c: #6BD18A;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </div>
+                            <h2 class="priv-section__title">Analytics &amp; Crash Reporting</h2>
+                        </div>
+                        <div class="priv-section__body">
+                            <p>Gymmetric uses <strong>Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong>, both provided by Google. These tools help us understand how the app is being used and identify crashes so we can fix them quickly.</p>
+                            <p><strong>Firebase Analytics</strong> collects anonymous, aggregated usage events — such as which screens are visited and which features are used. This data does not include your workout content, personal details, or anything that identifies you as an individual.</p>
+                            <p><strong>Firebase Crashlytics</strong> collects crash reports when the app unexpectedly closes. Reports include device type, OS version, and a stack trace of the crash — no workout data or personal information is included.</p>
+                            <p>No data collected by Firebase is used for advertising, sold to third parties, or shared with data brokers.</p>
+                            <div class="priv-highlight">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Firebase data is anonymous and used solely to improve app stability and experience — never for ads or profiling.
+                            </div>
+                            <p style="margin-top: 4px;">You can learn more about how Google handles this data at <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">firebase.google.com/support/privacy</a>.</p>
+                        </div>
+                    </div>
+
+                    <div class="priv-section reveal" id="deletion">
+                        <div class="priv-section__header">
+                            <div class="priv-section__icon" style="--c: #9ADCB0;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+                            </div>
+                            <h2 class="priv-section__title">Data Deletion</h2>
+                        </div>
+                        <div class="priv-section__body">
+                            <p>Since all data is stored exclusively on your device, deleting the Gymmetric app automatically and permanently removes all associated data from your iPhone.</p>
+                            <p>There is nothing stored on our servers to request deletion of, because we have no servers holding your data.</p>
+                            <div class="priv-highlight">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Deleting the app is all it takes. Complete, instant, permanent.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="priv-section reveal" id="contact">
+                        <div class="priv-section__header">
+                            <div class="priv-section__icon" style="--c: #42AD6B;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <h2 class="priv-section__title">Contact</h2>
+                        </div>
+                        <div class="priv-section__body">
+                            <p>If you have any questions about this privacy policy or how Gymmetric handles your data, you can reach out through the App Store support link on our app's page.</p>
+                            <a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413" target="_blank" rel="noopener" class="priv-contact-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                Contact via App Store
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <img src="assets/images/logo.png" alt="Gymmetric" class="footer__logo-img">
+                    <span>Gymmetric</span>
+                </div>
+                <div class="footer__links">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="../index.html">Portfolio</a>
+                </div>
+                <p class="footer__copy">&copy; 2026 Gymmetric. Built by Soufiane H.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/privacy.js"></script>
+</body>
+</html>

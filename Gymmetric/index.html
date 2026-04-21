@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymmetric — iOS Workout Tracker</title>
+    <meta name="description" content="Build routines, track sets and reps, and visualize your progress with beautiful charts. Gymmetric is the iOS workout tracker by Soufiane H. for lifters who want results.">
+    <script>
+        (function () {
+            try {
+                var mode = localStorage.getItem('site-theme-mode') || 'system';
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var resolved = mode === 'dark' || (mode === 'system' && prefersDark) ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme-mode', mode);
+                document.documentElement.setAttribute('data-theme', resolved);
+                document.documentElement.style.colorScheme = resolved;
+            } catch (error) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <!-- ======================== NAV ======================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner container">
+            <a href="#" class="nav__logo">
+                <img src="assets/images/logo.png" alt="Gymmetric" class="nav__logo-img">
+                Gymmetric
+            </a>
+            <ul class="nav__links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="../index.html">Portfolio</a></li>
+            </ul>
+            <div class="theme-switcher theme-switcher--nav" role="group" aria-label="Color theme">
+                <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+            </div>
+            <a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413" target="_blank" rel="noopener" class="btn btn--sm btn--primary nav__cta">Download</a>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="../index.html">Portfolio</a></li>
+            <li class="mobile-menu__theme">
+                <div class="theme-switcher theme-switcher--mobile" role="group" aria-label="Color theme">
+                    <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+                    <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+                </div>
+            </li>
+            <li><a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413" target="_blank" rel="noopener" class="btn btn--primary btn--block">Download</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+    <!-- ======================== HERO ======================== -->
+    <section class="hero" id="hero">
+        <div class="hero__bg-glow"></div>
+        <div class="hero__bg-grid"></div>
+        <div class="container hero__inner">
+            <div class="hero__content reveal">
+                <span class="badge">Native iOS Workout Tracker</span>
+                <h1 class="hero__title">
+                    Your Gym.<br>
+                    <span class="gradient-text">Your Metrics.</span>
+                </h1>
+                <p class="hero__subtitle">
+                    Build routines, log every set, and track your strength progression with beautiful charts — all in one intuitive app.
+                </p>
+                <div class="hero__actions">
+                    <a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        Download on App Store
+                    </a>
+                    <a href="../index.html" class="btn btn--ghost btn--lg">View Portfolio</a>
+                </div>
+                <p class="hero__portfolio-note">Built by Soufiane H. as part of a broader iOS product portfolio.</p>
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-value counter" data-target="500">0</span>+
+                        <span class="hero__stat-label">Exercises</span>
+                    </div>
+                    <div class="hero__stat-divider"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value counter" data-target="3">0</span>
+                        <span class="hero__stat-label">Languages</span>
+                    </div>
+                    <div class="hero__stat-divider"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">∞</span>
+                        <span class="hero__stat-label">Routines</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__visual reveal reveal--delay-1">
+                <div class="phone-mockup phone-mockup--asset">
+                    <img src="assets/images/mockup.png" alt="Workout tracker app mockup showing routines, workout stats, and progress charts" class="phone-mockup__asset">
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll-hint">
+            <div class="hero__scroll-mouse">
+                <div class="hero__scroll-dot"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- ======================== FEATURES ======================== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge">Powerful Features</span>
+                <h2 class="section-title">Everything you need to<br><span class="gradient-text">crush your goals</span></h2>
+                <p class="section-subtitle">From building your first routine to analyzing long-term trends, Gymmetric keeps every workout tool in one polished, focused app.</p>
+            </div>
+
+            <div class="features__grid">
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon" style="--accent: #6BD18A;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M8 7v10"/><path d="M12 7v10"/><path d="M16 7v10"/></svg>
+                    </div>
+                    <h3 class="feature-card__title">Routine Builder</h3>
+                    <p class="feature-card__desc">Create custom workout routines with exercises from a catalogue of 500+. Set target reps, sets, and weights for each exercise.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon" style="--accent: #9ADCB0;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                    </div>
+                    <h3 class="feature-card__title">Session Logging</h3>
+                    <p class="feature-card__desc">Log every set with reps and weight in real time. Track completion per exercise with satisfying animations and haptics.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon" style="--accent: #42AD6B;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3 class="feature-card__title">Progress Charts</h3>
+                    <p class="feature-card__desc">Beautiful interactive charts for every routine and exercise. Filter by week, month, or all-time to see your strength trajectory.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon" style="--accent: #F5A623;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3 class="feature-card__title">Workout History</h3>
+                    <p class="feature-card__desc">Never lose track of what you lifted. Browse past sessions with detailed set breakdowns, dates, and performance summaries.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon" style="--accent: #E05D9E;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <h3 class="feature-card__title">Exercise GIFs</h3>
+                    <p class="feature-card__desc">Animated demonstrations for each exercise so you always know the proper form. Learn the movement before hitting the weights.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon" style="--accent: #8B5CF6;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="feature-card__title">Privacy First</h3>
+                    <p class="feature-card__desc">All workout data stays on your device. No accounts required, no cloud sync to worry about. Your data, your rules.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== HOW IT WORKS ======================== -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge">Simple workflow</span>
+                <h2 class="section-title">Get started in<br><span class="gradient-text">three easy steps</span></h2>
+            </div>
+
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step__number">01</div>
+                    <div class="step__content">
+                        <div class="step__icon-wrap">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        </div>
+                        <h3 class="step__title">Build Your Routine</h3>
+                        <p class="step__desc">Pick exercises from a rich catalogue, set your target reps and weights, and name your workout day.</p>
+                    </div>
+                </div>
+
+                <div class="step__connector reveal">
+                    <svg width="100" height="40" viewBox="0 0 100 40">
+                        <path d="M0,20 Q50,0 100,20" fill="none" stroke="#6BD18A" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+                    </svg>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step__number">02</div>
+                    <div class="step__content">
+                        <div class="step__icon-wrap">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9ADCB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="step__title">Log Your Session</h3>
+                        <p class="step__desc">During your workout, log each set as you go. Track reps, weight, and completion with a fast, focused UI.</p>
+                    </div>
+                </div>
+
+                <div class="step__connector reveal">
+                    <svg width="100" height="40" viewBox="0 0 100 40">
+                        <path d="M0,20 Q50,40 100,20" fill="none" stroke="#6BD18A" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+                    </svg>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step__number">03</div>
+                    <div class="step__content">
+                        <div class="step__icon-wrap">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#42AD6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <h3 class="step__title">See Your Progress</h3>
+                        <p class="step__desc">Dive into interactive charts that show your strength trends over time — by exercise or by full routine.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== APP SHOWCASE ======================== -->
+    <section class="showcase">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge">Designed for lifters</span>
+                <h2 class="section-title">A beautiful app for<br><span class="gradient-text">serious training</span></h2>
+                <p class="section-subtitle">Gymmetric is crafted with thoughtful iOS design patterns, smooth motion, haptic feedback, accessibility support, and a clean product feel end to end.</p>
+            </div>
+            <div class="showcase__cards">
+                <div class="showcase-card reveal">
+                    <div class="showcase-card__emoji">🌍</div>
+                    <h4>Multilingual</h4>
+                    <p>English, French, and Arabic with full RTL support.</p>
+                </div>
+                <div class="showcase-card reveal">
+                    <div class="showcase-card__emoji">🌙</div>
+                    <h4>Dark Mode</h4>
+                    <p>Beautiful in both light and dark, adapting to your system preference.</p>
+                </div>
+                <div class="showcase-card reveal">
+                    <div class="showcase-card__emoji">♿</div>
+                    <h4>Accessible</h4>
+                    <p>Full VoiceOver support with descriptive labels and hints throughout.</p>
+                </div>
+                <div class="showcase-card reveal">
+                    <div class="showcase-card__emoji">📊</div>
+                    <h4>Smart Charts</h4>
+                    <p>Tap any data point for detail tooltips. Filter by reps, sets, or volume.</p>
+                </div>
+                <div class="showcase-card reveal">
+                    <div class="showcase-card__emoji">⚡</div>
+                    <h4>Blazing Fast</h4>
+                    <p>Built with SwiftData and async actors. Zero lag, even with heavy history.</p>
+                </div>
+                <div class="showcase-card reveal">
+                    <div class="showcase-card__emoji">🔒</div>
+                    <h4>Offline First</h4>
+                    <p>No account needed. All data lives on-device. Train anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== CREATOR BRIDGE ======================== -->
+    <section class="creator-bridge" id="creator-bridge">
+        <div class="container">
+            <div class="creator-bridge__card reveal">
+                <span class="badge">Built by Soufiane H.</span>
+                <h2 class="section-title">Gymmetric connects directly into the portfolio experience behind it.</h2>
+                <p class="section-subtitle">Explore the portfolio to see the broader iOS engineering background, app work, and the product-focused approach that shaped this website and the app itself.</p>
+                <div class="creator-bridge__actions">
+                    <a href="../index.html" class="btn btn--primary btn--lg">Open Portfolio</a>
+                    <a href="../index.html#apps" class="btn btn--ghost btn--lg">See App Showcase</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ======================== PRIVACY ======================== -->
+    <section class="privacy" id="privacy">
+        <div class="container">
+            <div class="privacy__inner reveal">
+                <div class="privacy__icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6BD18A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                </div>
+                <h2 class="section-title">Privacy Policy</h2>
+                <p class="privacy__intro">Your privacy matters to us. Gymmetric is designed with a privacy-first approach and keeps your workout data centered on your device.</p>
+
+                <div class="privacy__grid">
+                    <div class="privacy__card">
+                        <h4>📱 Data Storage</h4>
+                        <p>All workout data — routines, sessions, sets, and exercise logs — is stored <strong>locally on your device</strong> using Apple's SwiftData framework. Nothing is sent to external servers.</p>
+                    </div>
+                    <div class="privacy__card">
+                        <h4>🚫 No Account Required</h4>
+                        <p>Gymmetric does not require you to create an account, provide an email, or sign in with any service. You can use the full app anonymously.</p>
+                    </div>
+                    <div class="privacy__card">
+                        <h4>📡 Network Usage</h4>
+                        <p>The app may load exercise demonstration images from the internet. These requests do not include any personal data, workout history, or device identifiers.</p>
+                    </div>
+                    <div class="privacy__card">
+                        <h4>💳 In-App Purchases</h4>
+                        <p>Subscriptions are handled entirely through Apple's StoreKit framework. Payment information is managed by Apple — Gymmetric never sees or stores your payment details.</p>
+                    </div>
+                    <div class="privacy__card">
+                        <h4>📊 Analytics &amp; Crash Reporting</h4>
+                        <p>Gymmetric uses <strong>Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong> to understand how the app is used and to fix crashes. These collect anonymous usage events and crash logs — no personal workout data or identifiable information is included. No data is shared with advertisers or data brokers.</p>
+                    </div>
+                    <div class="privacy__card">
+                        <h4>🗑️ Data Deletion</h4>
+                        <p>Since all data is stored on-device, deleting the app removes all your data completely. There is nothing stored on our servers to delete.</p>
+                    </div>
+                </div>
+
+                <p class="privacy__footer">Last updated: March 2026. If you have questions, reach out via the App Store contact information.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== CTA / DOWNLOAD ======================== -->
+    <section class="cta" id="download">
+        <div class="cta__glow"></div>
+        <div class="container">
+            <div class="cta__inner reveal">
+                <h2 class="section-title">Ready to take control of your<br><span class="gradient-text">fitness journey?</span></h2>
+                <p class="section-subtitle">Download Gymmetric today and start building the body you want, one tracked session at a time.</p>
+                <a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413" target="_blank" rel="noopener" class="btn btn--primary btn--lg btn--app-store">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Download on the App Store
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <img src="assets/images/logo.png" alt="Gymmetric" class="footer__logo-img">
+                    <span>Gymmetric</span>
+                </div>
+                <div class="footer__links">
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="../index.html">Portfolio</a>
+                </div>
+                <p class="footer__copy">&copy; 2026 Gymmetric. Built by Soufiane H.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

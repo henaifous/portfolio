@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soufiane H. | iOS &amp; Flutter Developer</title>
+    <meta
+      name="description"
+      content="Framework-free portfolio for Soufiane H., featuring iOS and Flutter delivery, production app experience, and a connected two-app showcase."
+    />
+    <script>
+      (function () {
+        try {
+          var mode = localStorage.getItem("site-theme-mode") || "system";
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var resolved = mode === "dark" || (mode === "system" && prefersDark) ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme-mode", mode);
+          document.documentElement.setAttribute("data-theme", resolved);
+          document.documentElement.style.colorScheme = resolved;
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="scroll-progress" aria-hidden="true">
+      <span></span>
+    </div>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Homepage">
+          <span class="brand-mark">SH</span>
+          <span class="brand-text">Soufiane H.</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#services">Expertise</a>
+          <a href="#apps">Apps</a>
+          <a href="#process">Journey</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="theme-switcher theme-switcher--header" role="group" aria-label="Color theme">
+          <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+          <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+          <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+        </div>
+
+        <!-- <span class="ghost-button is-disabled" aria-disabled="true">Resume Soon</span> -->
+      </header>
+
+      <main id="main-content">
+        <section class="hero section" id="top">
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow">iOS &amp; Flutter Developer / Casablanca, Morocco</p>
+            <h1>
+              I'm <span class="text-accent">Soufiane H.</span>, building
+              polished mobile experiences across iOS and Flutter.
+            </h1>
+            <p class="hero-text">
+              I work across product design, architecture, API integration, and
+              delivery quality to ship mobile apps that feel smooth for users
+              and stay maintainable for teams, currently balancing Renault
+              Flutter work with ongoing iOS responsibilities.
+            </p>
+
+            <div class="hero-actions">
+              <a class="primary-button" href="#apps">View My Apps</a>
+              <a class="secondary-link" href="#about">See My Background</a>
+            </div>
+
+            <ul class="signal-list" aria-label="Portfolio highlights">
+              <li>5+ years across Renault, Capgemini, SQLI, Alpha Network, and BABEL</li>
+              <li>Current Renault scope spans Flutter delivery while continuing hands-on iOS tasks</li>
+              <li>Strong focus on SwiftUI, UIKit, Flutter, Dart, Combine, and clean architecture</li>
+              <li>Fluent in English, French, and Arabic with deep Agile team experience</li>
+            </ul>
+          </div>
+
+          <div class="hero-panel interactive-card" data-reveal data-tilt>
+            <div class="panel-top">
+              <p>Currently focused</p>
+              <span>iOS + Flutter delivery</span>
+            </div>
+
+            <div class="hero-stack">
+              <article class="stack-card">
+                <p class="stack-label">Mobile Product Craft</p>
+                <h2>Native iOS depth with ongoing Flutter delivery for production teams.</h2>
+              </article>
+
+              <div class="stack-grid">
+                <article class="mini-card">
+                  <span class="mini-kicker">Stack</span>
+                  <strong>Swift, SwiftUI, UIKit, Flutter, Dart</strong>
+                </article>
+                <article class="mini-card">
+                  <span class="mini-kicker">Architecture</span>
+                  <strong>MVVM, MVVM-C, VIPER, Clean</strong>
+                </article>
+                <article class="mini-card">
+                  <span class="mini-kicker">Quality</span>
+                  <strong>Unit Tests, Documentation, Agile Delivery</strong>
+                </article>
+                <article class="mini-card">
+                  <span class="mini-kicker">Tooling</span>
+                  <strong>Firebase, Bitrise, GitLab, Sendbird</strong>
+                </article>
+              </div>
+            </div>
+
+            <span class="orbit orbit-one" aria-hidden="true">SwiftUI</span>
+            <span class="orbit orbit-two" aria-hidden="true">MVVM-C</span>
+            <span class="orbit orbit-three" aria-hidden="true">App Shipping</span>
+          </div>
+        </section>
+
+        <section class="ticker" aria-label="Scrolling highlights">
+          <div class="ticker-track">
+            <span>SwiftUI</span>
+            <span>UIKit</span>
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Combine</span>
+            <span>MVVM-C</span>
+            <span>Clean Architecture</span>
+            <span>Firebase</span>
+            <span>XCTest</span>
+            <span>Agile Delivery</span>
+            <span>SwiftUI</span>
+            <span>UIKit</span>
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Combine</span>
+            <span>MVVM-C</span>
+            <span>Clean Architecture</span>
+            <span>Firebase</span>
+            <span>XCTest</span>
+            <span>Agile Delivery</span>
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">About Me</p>
+            <h2>
+              Mobile engineer with production experience across automotive,
+              consulting, messaging, and product environments.
+            </h2>
+            <p>
+              My experience centers on building mobile features end to end:
+              collaborating with designers, integrating APIs and SDKs, writing
+              technical documentation, and keeping delivery quality high across
+              native iOS work, Flutter delivery, testing, and architectural
+              discipline.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <article class="about-card about-card-wide" data-reveal>
+              <h3>Profile</h3>
+              <p>
+                I currently work with Renault in Casablanca, where I recently
+                started contributing as a Flutter developer while continuing to
+                handle iOS tasks, production features, technical spikes, and
+                close collaboration with product and design teams.
+              </p>
+              <p>
+                Across Renault, Capgemini, SQLI, Alpha Network, and BABEL, I
+                have built iOS interfaces, messaging-related features, API
+                integrations, and testable mobile flows using Swift, SwiftUI,
+                UIKit, Combine, and modern architectural patterns, and I am now
+                extending that production work into Flutter and Dart within my
+                current Renault scope.
+              </p>
+            </article>
+
+            <article class="about-card" data-reveal>
+              <h3>Quick Snapshot</h3>
+              <ul class="detail-list">
+                <li>Current focus: Renault mobile delivery across Flutter and iOS</li>
+                <li>Location: Casablanca, Morocco</li>
+                <li>Core stack: Swift, SwiftUI, UIKit, Flutter, Dart</li>
+                <li>Languages: English, French, Arabic</li>
+              </ul>
+            </article>
+
+            <article class="about-card accent-card" data-reveal>
+              <h3>Tools And Workflow</h3>
+              <p>
+                I regularly work with Firebase, Sendbird SDK, Contentsquare
+                SDK, Bitrise, and GitLab, and I am comfortable moving between
+                iOS delivery, Flutter tasks, documentation, testing, feature
+                delivery, and release support.
+              </p>
+            </article>
+
+            <article class="about-card" data-reveal>
+              <h3>Education</h3>
+              <ul class="detail-list">
+                <li>ENSIAS, Rabat: Specialized Master's in IoT and Mobile Services</li>
+                <li>FSTM, Mohammedia: Bachelor's in Computer Science, Networks, and Multimedia</li>
+                <li>Strong background in distributed systems, mobile services, AI, and software engineering</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="services">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Expertise</p>
+            <h2>
+              The strengths I bring to mobile teams building real products in
+              production.
+            </h2>
+          </div>
+
+          <div class="capability-grid">
+            <article class="capability-card" data-reveal>
+              <span class="capability-number">01</span>
+              <h3>iOS And Flutter Engineering</h3>
+              <p>
+                Building and maintaining mobile features with Swift, SwiftUI,
+                UIKit, Flutter, Dart, Combine, CoreData, CoreML, AVFoundation,
+                and AVKit.
+              </p>
+            </article>
+
+            <article class="capability-card" data-reveal>
+              <span class="capability-number">02</span>
+              <h3>Architecture And Quality</h3>
+              <p>
+                Applying MVVM, MVVM-C, VIPER, and clean architecture while
+                supporting unit testing, technical spikes, and maintainable
+                native and cross-platform code structure.
+              </p>
+            </article>
+
+            <article class="capability-card" data-reveal>
+              <span class="capability-number">03</span>
+              <h3>Integration And Delivery</h3>
+              <p>
+                Shipping production-ready flows with API integration, offline
+                and online management, SDK integration, Agile collaboration, and
+                release-aware tooling.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="apps">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Featured Apps</p>
+            <h2>
+              A two-app spotlight designed around your portfolio instead of a
+              generic multi-card gallery.
+            </h2>
+            <p>
+              Both iOS products now have their own connected landing pages, so
+              this section acts as the hub between the portfolio, the live app
+              websites, and each App Store listing.
+            </p>
+          </div>
+
+          <div class="apps-grid">
+            <article class="app-card interactive-card" data-reveal data-tilt>
+              <div class="app-head">
+                <p class="app-type">Live iOS App</p>
+                <span class="status-pill">Fitness</span>
+              </div>
+              <h3>Gymmetric</h3>
+              <p>
+                A dedicated workout tracker website and iOS app focused on
+                routines, set logging, workout history, and beautiful progress
+                charts for lifters who want a clean training workflow.
+              </p>
+              <ul class="app-tags">
+                <li>iOS</li>
+                <li>SwiftUI</li>
+                <li>Workout Tracking</li>
+              </ul>
+              <div class="app-stats">
+                <div>
+                  <strong>500+</strong>
+                  <span>exercises available in the app experience</span>
+                </div>
+                <div>
+                  <strong>3</strong>
+                  <span>supported languages highlighted on the product site</span>
+                </div>
+              </div>
+              <div class="app-links">
+                <a href="Gymmetric/index.html">Website</a>
+                <a href="https://apps.apple.com/ma/app/gymmetric-gym-workout-tracker/id6747186413">App Store</a>
+              </div>
+            </article>
+
+            <article class="app-card interactive-card" data-reveal data-tilt>
+              <div class="app-head">
+                <p class="app-type">Live iOS App</p>
+                <span class="status-pill muted-pill">Productivity</span>
+              </div>
+              <h3>Togglio</h3>
+              <p>
+                A calm Pomodoro timer and task manager built for deep work,
+                focus sprints, custom timing, and a more intentional daily
+                productivity rhythm on iPhone.
+              </p>
+              <ul class="app-tags">
+                <li>iOS</li>
+                <li>Pomodoro</li>
+                <li>Productivity</li>
+              </ul>
+              <div class="app-stats">
+                <div>
+                  <strong>25 min</strong>
+                  <span>signature focus session highlighted across the product site</span>
+                </div>
+                <div>
+                  <strong>0 data</strong>
+                  <span>current App Store privacy label indicates data not collected</span>
+                </div>
+              </div>
+              <div class="app-links">
+                <a href="Togglio/index.html">Website</a>
+                <a href="https://apps.apple.com/ma/app/togglio-pomodoro-timer-tasks/id6746730743">App Store</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="apps-banner" data-reveal>
+            <div>
+              <p class="eyebrow">Two-App Layout</p>
+              <h3>
+                Both apps now have matching microsites that feel connected to
+                the portfolio while still giving each product its own voice.
+              </h3>
+            </div>
+            <span class="primary-button is-disabled" aria-disabled="true">Resume Soon</span>
+          </div>
+        </section>
+
+        <section class="section" id="process">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Career Journey</p>
+            <h2>
+              A quick view of the teams, products, and responsibilities that
+              shaped my mobile path.
+            </h2>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-card" data-reveal>
+              <span>01</span>
+              <h3>Renault</h3>
+              <p>
+                Working with Renault since March 2025, now contributing as a
+                Flutter developer while continuing iOS tasks across production
+                features, front-end implementation, technical spikes,
+                documentation, API integration, and unit tests.
+              </p>
+            </article>
+
+            <article class="process-card" data-reveal>
+              <span>02</span>
+              <h3>Capgemini @ Renault</h3>
+              <p>
+                Senior iOS Developer from August 2024 to February 2025,
+                delivering SwiftUI and UIKit features with Combine, MVVM-C, and
+                close collaboration across Agile teams.
+              </p>
+            </article>
+
+            <article class="process-card" data-reveal>
+              <span>03</span>
+              <h3>SQLI</h3>
+              <p>
+                iOS Developer from May 2023 to August 2024, including work on a
+                new messaging Swift package, clean architecture, documentation,
+                and unit tests.
+              </p>
+            </article>
+
+            <article class="process-card" data-reveal>
+              <span>04</span>
+              <h3>Alpha Network</h3>
+              <p>
+                iOS Developer from March 2022 to April 2023, shipping new
+                features, API integrations, MVVM-based flows, and UIKit-driven
+                product updates.
+              </p>
+            </article>
+
+            <article class="process-card" data-reveal>
+              <span>05</span>
+              <h3>BABEL</h3>
+              <p>
+                iOS Developer from September 2020 to February 2022, working
+                with VIPER, Objective-C, unit and UI tests, and collaborative
+                Agile product delivery.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+          <div class="contact-card interactive-card" data-reveal data-tilt>
+            <p class="eyebrow">Contact</p>
+            <h2>
+              Open to iOS, Flutter, and product-focused mobile opportunities.
+            </h2>
+            <p>
+              Available for product-focused mobile work, app collaborations, and
+              engineering roles where strong UI craft and maintainable
+              architecture both matter.
+            </p>
+
+            <div class="contact-links">
+              <!-- <a class="primary-button" href="mailto:email@gmail.com"
+                >email@gmail.com</a
+              > 
+              <span class="ghost-button dark-button is-disabled" aria-disabled="true"
+                >Resume Soon</span
+              > -->
+              <a
+                class="ghost-button dark-button"
+                href="https://www.linkedin.com/in/shobaizi/"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Framework-free iOS and Flutter portfolio with a connected two-app showcase.</p>
+        <a href="#top">Back to top</a>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
