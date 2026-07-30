@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Soufiane H.</title>
+    <meta name="description" content="Mobile engineering articles by Soufiane H." />
+    <script>
+      (function () {
+        try {
+          var mode = localStorage.getItem("site-theme-mode") || "system";
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var resolved = mode === "dark" || (mode === "system" && prefersDark) ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme-mode", mode);
+          document.documentElement.setAttribute("data-theme", resolved);
+          document.documentElement.style.colorScheme = resolved;
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to article</a>
+
+    <div class="scroll-progress" aria-hidden="true">
+      <span></span>
+    </div>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html#top" aria-label="Homepage">
+          <span class="brand-mark">SH</span>
+          <span class="brand-text">Soufiane H.</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html#blogs">All articles</a>
+          <a href="index.html#apps">Apps</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="theme-switcher theme-switcher--header" role="group" aria-label="Color theme">
+          <button class="theme-switcher__button" type="button" data-theme-option="system" aria-pressed="true">Auto</button>
+          <button class="theme-switcher__button" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+          <button class="theme-switcher__button" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+        </div>
+      </header>
+
+      <main class="article-page" id="main-content">
+        <article id="blog-article" aria-live="polite">
+          <p class="blog-status">Loading article...</p>
+        </article>
+        <a class="article-back" href="index.html#blogs">← Back to all articles</a>
+      </main>
+
+      <footer class="site-footer">
+        <p>Mobile engineering notes by Soufiane H.</p>
+        <a href="index.html#top">Portfolio</a>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="blogs.js"></script>
+  </body>
+</html>

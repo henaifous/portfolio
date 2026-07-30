@@ -84,8 +84,13 @@ const updateScrollState = () => {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress = scrollable > 0 ? scrollTop / scrollable : 0;
 
-  progressBar.style.transform = `scaleX(${progress})`;
-  header.classList.toggle("is-scrolled", scrollTop > 16);
+  if (progressBar) {
+    progressBar.style.transform = `scaleX(${progress})`;
+  }
+
+  if (header) {
+    header.classList.toggle("is-scrolled", scrollTop > 16);
+  }
 };
 
 updateScrollState();

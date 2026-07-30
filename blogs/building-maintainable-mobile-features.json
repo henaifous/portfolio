@@ -1,0 +1,59 @@
+{
+  "$schema": "./article.schema.json",
+  "slug": "building-maintainable-mobile-features",
+  "title": "Building Mobile Features That Stay Maintainable",
+  "summary": "A practical approach to balancing product speed, clear boundaries, and testable code across iOS and Flutter projects.",
+  "publishedAt": "2026-07-30",
+  "readingTime": "4 min read",
+  "tags": [
+    "Architecture",
+    "iOS",
+    "Flutter"
+  ],
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "A mobile feature is successful when it solves the user's problem today without making tomorrow's change unnecessarily expensive. That balance starts before the first view or widget is built."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Start with a clear feature boundary"
+    },
+    {
+      "type": "paragraph",
+      "text": "Define what the feature owns: its state, business rules, external dependencies, and navigation outcomes. Keeping those decisions explicit makes both Swift and Dart code easier to understand and test."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Keep networking and persistence behind focused interfaces.",
+        "Model loading, success, empty, and failure states intentionally.",
+        "Let views render state instead of deciding business rules.",
+        "Write tests around behavior that is costly to verify manually."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Optimize for the next change"
+    },
+    {
+      "type": "paragraph",
+      "text": "Architecture is useful when it lowers the cost of change. A small feature does not need layers for their own sake, but it does benefit from names and boundaries that reveal where new behavior belongs."
+    },
+    {
+      "type": "quote",
+      "text": "The best structure is not the one with the most patterns; it is the one that makes the next product decision straightforward to implement."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Keep delivery feedback short"
+    },
+    {
+      "type": "paragraph",
+      "text": "Small pull requests, targeted tests, and frequent product reviews expose incorrect assumptions early. This feedback loop matters as much as the code structure, because maintainability is also a team habit."
+    }
+  ]
+}
