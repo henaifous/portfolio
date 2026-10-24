@@ -1,0 +1,53 @@
+/* Home page: hero. Section styles are added below as each section lands. */
+
+/* Load choreography */
+@keyframes pg-type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes pg-ride { from { transform: translateX(0); } to { transform: translateX(calc(100cqw - 12px)); } }
+@keyframes pg-lit { to { border-color: var(--accent-text); color: var(--accent-text); } }
+.pg-type { display: inline-block; animation: pg-type 1440ms steps(48, end) 120ms both; }
+.pg-title { animation: pg-rise var(--dur-slow) var(--ease-out) 240ms both; }
+.pg-hero__panel { animation: pg-rise-soft var(--dur-slow) var(--ease-out) 360ms both; }
+.pg-cta { animation: pg-fade var(--dur-base) var(--ease-out) 1400ms both; }
+
+/* Hero */
+.pg-hero { position: relative; overflow: hidden; }
+.pg-hero__grid { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse at 15% 0%, #000, transparent 72%); mask-image: radial-gradient(ellipse at 15% 0%, #000, transparent 72%); pointer-events: none; }
+.pg-hero__glow { position: absolute; inset: -10% 30% 10% -10%; background: radial-gradient(closest-side, var(--glow), transparent); pointer-events: none; }
+.pg-hero__in { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-12); align-items: center; padding-block: var(--space-24); }
+@media (min-width: 960px) { .pg-hero__in { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+@media (max-width: 719px) { .pg-hero__in { padding-block: var(--space-16); } }
+.pg-hero__copy { display: flex; flex-direction: column; align-items: flex-start; }
+.pg-title { margin-top: var(--space-6); color: var(--ink); }
+.pg-name { display: block; font: 800 clamp(56px, 9vw, 112px)/0.9 var(--font-display); letter-spacing: -0.05em; font-variation-settings: "opsz" 96; }
+.pg-role { display: block; margin-top: var(--space-4); font: 700 clamp(28px, 3.6vw, 48px)/1.05 var(--font-display); letter-spacing: -0.035em; font-variation-settings: "opsz" 48; color: var(--accent-text); }
+.pg-lead { max-width: var(--reading-width); margin-top: var(--space-8); color: var(--ink-muted); text-wrap: pretty; }
+.pg-cta { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-12); }
+.pg-social { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
+.pg-panelhead { display: flex; flex-direction: column; gap: var(--space-2); }
+.pg-panelhead .heading-lg { color: var(--ink); }
+.pg-panelhead .body { color: var(--ink-muted); }
+
+/* What I do: four stations on a line, a dot rides through them */
+.pg-flow { position: relative; margin-top: var(--space-8); }
+.pg-flow__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
+.pg-flow__rail { position: absolute; left: 12.5%; right: 12.5%; top: 24px; height: 2px; border-radius: 2px; background: var(--line); container-type: inline-size; }
+.pg-flow__line { position: absolute; inset: 0; background: var(--accent); transform-origin: left center; animation: pg-grow 2800ms var(--ease-in-out) 480ms both; }
+.pg-flow__dot { position: absolute; left: 0; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); animation: pg-ride 2800ms var(--ease-in-out) 480ms both; }
+.pg-flow li { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; }
+.pg-flow__icon { position: relative; z-index: 1; display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line-strong); border-radius: var(--radius-md); background: var(--surface-raised); color: var(--ink); animation: pg-lit var(--dur-fast) var(--ease-out) both; }
+.pg-flow li:nth-child(1) .pg-flow__icon { animation-delay: 480ms; }
+.pg-flow li:nth-child(2) .pg-flow__icon { animation-delay: 1516ms; }
+.pg-flow li:nth-child(3) .pg-flow__icon { animation-delay: 2244ms; }
+.pg-flow li:nth-child(4) .pg-flow__icon { animation-delay: 3280ms; }
+.pg-flow svg { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.pg-flow .label { color: var(--ink); }
+.pg-flow .caption { color: var(--ink-muted); }
+.pg-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(110px, 100%), 1fr)); gap: var(--space-6); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--line); }
+.pg-stats .stat { font-size: 36px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-type, .pg-title, .pg-hero__panel, .pg-cta { animation: none; }
+  .pg-flow__line { animation: none; }
+  .pg-flow__dot { animation: none; transform: translateX(calc(100cqw - 12px)); }
+  .pg-flow__icon { animation: none; border-color: var(--accent-text); color: var(--accent-text); }
+}
