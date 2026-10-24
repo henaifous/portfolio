@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>From iOS to Flutter: What Carries Over (and What Doesn't)</title>
+    <meta name="description" content="A practical map for iOS developers learning Flutter: SwiftUI views and widgets, state, navigation, async code, testing and where habits break." />
+    <link rel="canonical" href="https://henaifuos.com/blog/ios-to-flutter/" />
+    <meta name="author" content="Soufiane H." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#060706" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="henaifuos.com" />
+    <meta property="og:title" content="From iOS to Flutter: What Carries Over (and What Doesn't)" />
+    <meta property="og:description" content="A practical map for iOS developers learning Flutter: SwiftUI views and widgets, state, navigation, async code, testing and where habits break." />
+    <meta property="og:url" content="https://henaifuos.com/blog/ios-to-flutter/" />
+    <meta property="og:image" content="https://henaifuos.com/assets/img/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Soufiane H., iOS and Flutter developer, with a Design, Develop, Publish illustration" />
+    <meta property="article:published_time" content="2026-10-24" />
+    <meta property="article:author" content="https://henaifuos.com/" />
+    <meta property="article:tag" content="Flutter" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="From iOS to Flutter: What Carries Over (and What Doesn't)" />
+    <meta name="twitter:description" content="A practical map for iOS developers learning Flutter: SwiftUI views and widgets, state, navigation, async code, testing and where habits break." />
+    <meta name="twitter:image" content="https://henaifuos.com/assets/img/og-card.png" />
+
+    <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Soufiane H. writing" href="../../feed.xml" />
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var mode = localStorage.getItem("site-theme-mode");
+          root.setAttribute("data-theme", mode === "light" ? "light" : "dark");
+        } catch (error) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../../assets/css/components.css" />
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/article.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://henaifuos.com/blog/ios-to-flutter/#article",
+            "headline": "From iOS to Flutter: what carries over and what does not",
+            "description": "A practical map for iOS developers learning Flutter: SwiftUI views and widgets, state, navigation, async code, testing and where habits break.",
+            "datePublished": "2026-10-24",
+            "dateModified": "2026-10-24",
+            "inLanguage": "en",
+            "keywords": "Flutter, SwiftUI, iOS developer, Dart, widgets, state management",
+            "image": "https://henaifuos.com/assets/img/og-card.png",
+            "mainEntityOfPage": "https://henaifuos.com/blog/ios-to-flutter/",
+            "author": {
+              "@type": "Person",
+              "name": "Soufiane H.",
+              "url": "https://henaifuos.com/"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Soufiane H.",
+              "url": "https://henaifuos.com/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://henaifuos.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Writing",
+                "item": "https://henaifuos.com/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "From iOS to Flutter"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="pg-root">
+    <a class="pg-skip" href="#article-body">Skip to the article</a>
+
+    <header class="pg-header">
+      <div class="pg-wrap pg-header__in">
+        <a class="pg-brand" href="../../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav class="pg-nav" aria-label="Primary">
+          <a href="../../">Home</a>
+          <a href="../../#works">Works</a>
+          <a href="../">Writing</a>
+          <a href="../../#contact">Contact</a>
+        </nav>
+        <div class="pg-theme" role="group" aria-label="Color theme">
+          <button type="button" data-theme-option="dark" aria-pressed="true">Dark</button>
+          <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+        </div>
+      </div>
+      <span class="pg-progress" aria-hidden="true"></span>
+    </header>
+
+    <main id="main-content">
+      <article>
+        <header class="ar-hero">
+          <div class="ar-hero__grid" aria-hidden="true"></div>
+          <div class="ar-hero__glow" aria-hidden="true"></div>
+          <div class="pg-wrap ar-hero__in">
+            <nav class="ar-crumbs" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="../../">Home</a></li>
+                <li><a href="../">Writing</a></li>
+                <li aria-current="page">From iOS to Flutter</li>
+              </ol>
+            </nav>
+            <span class="hf-pill">Flutter</span>
+            <h1 class="ar-title">From iOS to Flutter: what carries over and what does not</h1>
+            <p class="body-lg ar-lead">If you have shipped iOS apps, Flutter feels familiar within a day and surprising within a week. This guide maps SwiftUI concepts to their Flutter counterparts, then lists the habits that need to change.</p>
+            <p class="ar-meta caption">
+              <span>By <strong>Soufiane H.</strong></span>
+              <time datetime="2026-10-24">24 Oct 2026</time>
+              <span>7 min read</span>
+            </p>
+
+            <figure class="ar-cover">
+            <div class="ar-map" aria-hidden="true">
+              <span class="label head">Swift</span><span></span><span class="label head">Dart</span>
+              <span class="ar-chip" style="--k: 0">View</span><i style="--k: 0"></i><span class="ar-chip" style="--k: 0">Widget</span>
+              <span class="ar-chip" style="--k: 1">@State</span><i style="--k: 1"></i><span class="ar-chip" style="--k: 1">setState</span>
+              <span class="ar-chip" style="--k: 2">ObservableObject</span><i style="--k: 2"></i><span class="ar-chip" style="--k: 2">ChangeNotifier</span>
+              <span class="ar-chip" style="--k: 3">NavigationStack</span><i style="--k: 3"></i><span class="ar-chip" style="--k: 3">Navigator</span>
+            </div>
+            <figcaption class="caption">Four SwiftUI ideas and the Flutter ones that do the same job.</figcaption>
+          </figure>
+          </div>
+        </header>
+
+        <div class="pg-wrap">
+          <div class="ar-layout">
+            <nav class="ar-toc" aria-label="On this page">
+            <p class="label">On this page</p>
+            <ol>
+              <li><a href="#same-ideas-different-names">Same ideas, different names</a></li>
+              <li><a href="#layout-and-composition">Layout: modifiers become wrappers</a></li>
+              <li><a href="#state">State and rebuilds</a></li>
+              <li><a href="#navigation">Navigation</a></li>
+              <li><a href="#async-and-streams">Async code and streams</a></li>
+              <li><a href="#testing">Testing</a></li>
+              <li><a href="#habits-that-break">Habits that break</a></li>
+              <li><a href="#in-short">In short</a></li>
+            </ol>
+          </nav>
+
+            <div class="ar-prose" id="article-body">
+            <h2 id="same-ideas-different-names">Same ideas, different names</h2>
+            <p>I work on iOS and Flutter code side by side, and most of what you know transfers. Both frameworks describe the interface as a function of state, both rebuild cheaply, and both reward small, testable pieces. What changes is the vocabulary.</p>
+            <div class="ar-tablewrap" tabindex="0" role="region" aria-label="SwiftUI and Flutter concepts, scrollable table">
+              <table class="ar-table">
+                <caption>SwiftUI concepts and their Flutter counterparts</caption>
+                <thead>
+                  <tr><th scope="col">Idea</th><th scope="col">SwiftUI</th><th scope="col">Flutter</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Building block</td><td><code>View</code></td><td><code>Widget</code></td></tr>
+                  <tr><td>Local state</td><td><code>@State</code></td><td><code>StatefulWidget</code> and <code>setState</code></td></tr>
+                  <tr><td>Shared observable state</td><td><code>ObservableObject</code>, <code>@Published</code></td><td><code>ChangeNotifier</code></td></tr>
+                  <tr><td>Data down the tree</td><td><code>@Environment</code>, <code>@EnvironmentObject</code></td><td><code>InheritedWidget</code>, or Provider and Riverpod on top</td></tr>
+                  <tr><td>Navigation</td><td><code>NavigationStack</code></td><td><code>Navigator</code>, or go_router</td></tr>
+                  <tr><td>Async work</td><td><code>async</code>/<code>await</code>, Combine</td><td><code>async</code>/<code>await</code>, <code>Future</code>, <code>Stream</code></td></tr>
+                  <tr><td>Lists</td><td><code>List</code>, <code>ForEach</code></td><td><code>ListView.builder</code></td></tr>
+                  <tr><td>Layout containers</td><td><code>VStack</code>, <code>HStack</code>, <code>ZStack</code></td><td><code>Column</code>, <code>Row</code>, <code>Stack</code></td></tr>
+                  <tr><td>Dependencies</td><td>Swift Package Manager</td><td>pub and <code>pubspec.yaml</code></td></tr>
+                  <tr><td>Tests</td><td>XCTest</td><td><code>flutter_test</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <aside class="ar-callout">
+              <span class="label">Note</span>
+              <p>Provider and Riverpod are packages, not part of Flutter itself. Pick one state approach per app and stay with it.</p>
+            </aside>
+
+            <h2 id="layout-and-composition">Layout: modifiers become wrappers</h2>
+            <p>SwiftUI chains modifiers onto a view. Flutter wraps a widget in another widget. Here is the same two-line label in both.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>TitleBlock.swift</span></figcaption>
+              <pre tabindex="0"><code>VStack(alignment: .leading, spacing: 8) {
+    Text(title).font(.headline)
+    Text(subtitle).foregroundStyle(.secondary)
+}
+.padding()</code></pre>
+            </figure>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Dart</span><span>title_block.dart</span></figcaption>
+              <pre tabindex="0"><code>Padding(
+  padding: const EdgeInsets.all(16),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(title, style: Theme.of(context).textTheme.titleMedium),
+      const SizedBox(height: 8),
+      Text(subtitle, style: Theme.of(context).textTheme.bodyMedium),
+    ],
+  ),
+)</code></pre>
+            </figure>
+            <p>Two consequences follow. Padding, alignment and sizing are widgets, so trees get deeper and you extract small widgets earlier than you would extract views. And <code>const</code> constructors, as in <code>const SizedBox(height: 8)</code>, let Flutter skip rebuilding parts that cannot change.</p>
+
+            <h2 id="state">State and rebuilds</h2>
+            <p><code>@State</code> and <code>setState</code> both say the same thing: this screen owns a value and should redraw when it changes. The difference is that Flutter makes the notification explicit.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Dart</span><span>counter_page.dart</span></figcaption>
+              <pre tabindex="0"><code>class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State&lt;CounterPage&gt; createState() =&gt; _CounterPageState();
+}
+
+class _CounterPageState extends State&lt;CounterPage&gt; {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Text('$_count')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () =&gt; setState(() =&gt; _count++),
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}</code></pre>
+            </figure>
+            <p>For state shared between screens, the closest match to <code>ObservableObject</code> is <code>ChangeNotifier</code>. Compare the two models.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>CounterModel.swift</span></figcaption>
+              <pre tabindex="0"><code>final class CounterModel: ObservableObject {
+    @Published private(set) var count = 0
+    func increment() { count += 1 }
+}</code></pre>
+            </figure>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Dart</span><span>counter_model.dart</span></figcaption>
+              <pre tabindex="0"><code>class CounterModel extends ChangeNotifier {
+  int _count = 0;
+  int get count =&gt; _count;
+
+  void increment() {
+    _count++;
+    notifyListeners();
+  }
+}
+
+// In a widget:
+ListenableBuilder(
+  listenable: model,
+  builder: (context, _) =&gt; Text('${model.count}'),
+)</code></pre>
+            </figure>
+            <p><code>@Published</code> fires on every assignment. A <code>ChangeNotifier</code> only tells its listeners when you call <code>notifyListeners()</code>. Forget it and the screen quietly stays stale, which is the most common first bug for iOS developers.</p>
+
+            <h2 id="navigation">Navigation</h2>
+            <p>Flutter's <code>Navigator</code> keeps a stack of routes, much like <code>NavigationStack</code>. Pushing a screen is one call.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Dart</span><span>open_detail.dart</span></figcaption>
+              <pre tabindex="0"><code>Navigator.of(context).push(
+  MaterialPageRoute&lt;void&gt;(builder: (_) =&gt; const DetailScreen(id: 7)),
+);</code></pre>
+            </figure>
+            <p>For deep links, URLs and the web, most teams adopt a router package such as go_router, which describes every route in one place. If you came from a coordinator-based iOS app, that configuration plays the same role: it is the one place that knows how screens connect. I wrote about that pattern in <a href="../mvvm-c-swiftui-combine/">MVVM-C with SwiftUI and Combine</a>.</p>
+
+            <h2 id="async-and-streams">Async code and streams</h2>
+            <p><code>async</code>/<code>await</code> reads almost the same in both languages. Combine publishers map to streams, and a cancellable maps to a subscription that you must cancel yourself.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>Stream.swift</span></figcaption>
+              <pre tabindex="0"><code>for await value in stream {
+    print(value)
+}</code></pre>
+            </figure>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Dart</span><span>stream.dart</span></figcaption>
+              <pre tabindex="0"><code>await for (final value in stream) {
+  print(value);
+}
+
+// Or keep a subscription and cancel it when the widget goes away:
+late final StreamSubscription&lt;int&gt; _subscription;
+
+@override
+void initState() {
+  super.initState();
+  _subscription = stream.listen(print);
+}
+
+@override
+void dispose() {
+  _subscription.cancel();
+  super.dispose();
+}</code></pre>
+            </figure>
+            <p>Combine's <code>AnyCancellable</code> cancels itself when it is released. A <code>StreamSubscription</code> does not, so cancel it in <code>dispose()</code>.</p>
+
+            <h2 id="testing">Testing</h2>
+            <p>XCTest becomes <code>flutter_test</code>. A widget test builds a widget in memory and lets you tap it and read the result, with no simulator.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Dart</span><span>counter_page_test.dart</span></figcaption>
+              <pre tabindex="0"><code>testWidgets('increments the counter', (tester) async {
+  await tester.pumpWidget(const MaterialApp(home: CounterPage()));
+
+  await tester.tap(find.byIcon(Icons.add));
+  await tester.pump();
+
+  expect(find.text('1'), findsOneWidget);
+});</code></pre>
+            </figure>
+            <p>That runs in milliseconds on your machine, so it is cheap to cover screens that would need a slow UI test on iOS.</p>
+
+            <h2 id="habits-that-break">Habits that break</h2>
+            <ul>
+              <li><strong>Value types.</strong> Dart has no structs. Immutable models are classes with <code>final</code> fields, usually with a <code>copyWith</code> method or a code generator.</li>
+              <li><strong><code>build()</code> runs often.</strong> Treat it like SwiftUI's <code>body</code>: no network calls and no side effects. Keep it cheap and push work into state.</li>
+              <li><strong>No live previews to lean on.</strong> Hot reload keeps your app's state while you edit, which covers much of what previews are used for.</li>
+              <li><strong>Platform look.</strong> Material widgets are the default. For an iOS look, use the Cupertino widgets deliberately, screen by screen.</li>
+              <li><strong>Optionals.</strong> Dart's null safety is close to Swift optionals, with <code>String?</code>, <code>??</code> and <code>!</code>. Avoid force unwrapping in Dart the way you avoid it in Swift.</li>
+            </ul>
+
+            <h2 id="in-short">In short</h2>
+            <p>Most of your SwiftUI instincts carry over: declare the interface from state, keep logic out of views and test small units. What changes is the vocabulary, the explicit rebuild signals and the lack of value types. Map the concepts first, then learn the packages.</p>
+            <p>Next: how a <a href="../svg-stroke-dashoffset/">route can draw itself with SVG stroke-dashoffset</a>, the animation behind this site.</p>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="ar-end" aria-label="After the article">
+        <div class="pg-wrap ar-end__in">
+          <section class="hf-panel" aria-label="About the author">
+            <div class="ar-author">
+              <h2 class="heading-lg">About the author</h2>
+              <p class="body">Soufiane H. is an iOS and Flutter developer in Casablanca who designs, builds and publishes mobile apps for iOS and Android.</p>
+              <div class="ar-author__links">
+                <a class="hf-btn hf-btn--ghost hf-btn--sm" href="https://www.linkedin.com/in/shobaizi/" target="_blank" rel="noopener"><span class="hf-btn__prompt" aria-hidden="true">&gt;</span><span>LinkedIn</span></a>
+                <a class="hf-btn hf-btn--ghost hf-btn--sm" href="https://github.com/henaifous" target="_blank" rel="noopener"><span class="hf-btn__prompt" aria-hidden="true">&gt;</span><span>GitHub</span></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="hf-panel" aria-label="Keep reading">
+            <h2 class="heading-lg">Keep reading</h2>
+            <ul class="ar-rel">
+            <li><a href="../mvvm-c-swiftui-combine/"><span><span class="heading-md">MVVM-C with SwiftUI and Combine: navigation that stays testable</span><span class="caption">Swift, 6 min read</span></span><span class="ar-go" aria-hidden="true">&gt;</span></a></li>
+            <li><a href="../svg-stroke-dashoffset/"><span><span class="heading-md">Draw a route with SVG stroke-dashoffset</span><span class="caption">Web, 6 min read</span></span><span class="ar-go" aria-hidden="true">&gt;</span></a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pg-footer">
+      <div class="pg-wrap pg-footer__in">
+        <a class="pg-brand" href="../../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav aria-label="Footer">
+          <a href="../../">Home</a>
+          <a href="../">Writing</a>
+          <a href="https://www.linkedin.com/in/shobaizi/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/henaifous" rel="noopener">GitHub</a>
+          <a href="https://www.instagram.com/shobaizi/" rel="noopener">Instagram</a>
+        </nav>
+        <p class="caption">&copy; 2026 Soufiane H. &middot; Casablanca, Morocco</p>
+      </div>
+    </footer>
+
+    <script src="../../assets/js/main.js" defer></script>
+  </body>
+</html>
