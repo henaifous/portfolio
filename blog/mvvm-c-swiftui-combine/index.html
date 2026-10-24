@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MVVM-C with SwiftUI and Combine: Testable Navigation</title>
+    <meta name="description" content="Keep SwiftUI screens small and unit tests simple: a coordinator owns navigation, view models emit events and Combine connects the two." />
+    <link rel="canonical" href="https://henaifuos.com/blog/mvvm-c-swiftui-combine/" />
+    <meta name="author" content="Soufiane H." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#060706" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="henaifuos.com" />
+    <meta property="og:title" content="MVVM-C with SwiftUI and Combine: Testable Navigation" />
+    <meta property="og:description" content="Keep SwiftUI screens small and unit tests simple: a coordinator owns navigation, view models emit events and Combine connects the two." />
+    <meta property="og:url" content="https://henaifuos.com/blog/mvvm-c-swiftui-combine/" />
+    <meta property="og:image" content="https://henaifuos.com/assets/img/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Soufiane H., iOS and Flutter developer, with a Design, Develop, Publish illustration" />
+    <meta property="article:published_time" content="2026-10-24" />
+    <meta property="article:author" content="https://henaifuos.com/" />
+    <meta property="article:tag" content="Swift" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MVVM-C with SwiftUI and Combine: Testable Navigation" />
+    <meta name="twitter:description" content="Keep SwiftUI screens small and unit tests simple: a coordinator owns navigation, view models emit events and Combine connects the two." />
+    <meta name="twitter:image" content="https://henaifuos.com/assets/img/og-card.png" />
+
+    <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Soufiane H. writing" href="../../feed.xml" />
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var mode = localStorage.getItem("site-theme-mode");
+          root.setAttribute("data-theme", mode === "light" ? "light" : "dark");
+        } catch (error) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../../assets/css/components.css" />
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/article.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://henaifuos.com/blog/mvvm-c-swiftui-combine/#article",
+            "headline": "MVVM-C with SwiftUI and Combine: navigation that stays testable",
+            "description": "Keep SwiftUI screens small and unit tests simple: a coordinator owns navigation, view models emit events and Combine connects the two.",
+            "datePublished": "2026-10-24",
+            "dateModified": "2026-10-24",
+            "inLanguage": "en",
+            "keywords": "MVVM-C, SwiftUI, Combine, coordinator pattern, iOS architecture, XCTest",
+            "image": "https://henaifuos.com/assets/img/og-card.png",
+            "mainEntityOfPage": "https://henaifuos.com/blog/mvvm-c-swiftui-combine/",
+            "author": {
+              "@type": "Person",
+              "name": "Soufiane H.",
+              "url": "https://henaifuos.com/"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Soufiane H.",
+              "url": "https://henaifuos.com/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://henaifuos.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Writing",
+                "item": "https://henaifuos.com/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "MVVM-C with SwiftUI and Combine"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="pg-root">
+    <a class="pg-skip" href="#article-body">Skip to the article</a>
+
+    <header class="pg-header">
+      <div class="pg-wrap pg-header__in">
+        <a class="pg-brand" href="../../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav class="pg-nav" aria-label="Primary">
+          <a href="../../">Home</a>
+          <a href="../../#works">Works</a>
+          <a href="../">Writing</a>
+          <a href="../../#contact">Contact</a>
+        </nav>
+        <div class="pg-theme" role="group" aria-label="Color theme">
+          <button type="button" data-theme-option="dark" aria-pressed="true">Dark</button>
+          <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+        </div>
+      </div>
+      <span class="pg-progress" aria-hidden="true"></span>
+    </header>
+
+    <main id="main-content">
+      <article>
+        <header class="ar-hero">
+          <div class="ar-hero__grid" aria-hidden="true"></div>
+          <div class="ar-hero__glow" aria-hidden="true"></div>
+          <div class="pg-wrap ar-hero__in">
+            <nav class="ar-crumbs" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="../../">Home</a></li>
+                <li><a href="../">Writing</a></li>
+                <li aria-current="page">MVVM-C with SwiftUI and Combine</li>
+              </ol>
+            </nav>
+            <span class="hf-pill">Swift</span>
+            <h1 class="ar-title">MVVM-C with SwiftUI and Combine: navigation that stays testable</h1>
+            <p class="body-lg ar-lead">SwiftUI makes it easy to push navigation into the view layer, and that is exactly what makes screens hard to test and reuse. MVVM-C adds one more role, the coordinator, so views render, view models decide and one object owns where the app goes next.</p>
+            <p class="ar-meta caption">
+              <span>By <strong>Soufiane H.</strong></span>
+              <time datetime="2026-10-24">24 Oct 2026</time>
+              <span>6 min read</span>
+            </p>
+
+            <figure class="ar-cover">
+            <div class="ar-nodes" aria-hidden="true">
+              <div class="ar-node" style="--k: 0"><span class="label">View</span><span class="caption">draws state</span></div>
+              <div class="ar-conn" style="--k: 0"><span class="label">intent</span><i></i></div>
+              <div class="ar-node" style="--k: 1"><span class="label">ViewModel</span><span class="caption">holds logic</span></div>
+              <div class="ar-conn" style="--k: 1"><span class="label">event</span><i></i></div>
+              <div class="ar-node ar-node--hot" style="--k: 2"><span class="label">Coordinator</span><span class="caption">owns the path</span></div>
+              <div class="ar-conn" style="--k: 2"><span class="label">path</span><i></i></div>
+              <div class="ar-node" style="--k: 3"><span class="label">NavigationStack</span><span class="caption">shows screens</span></div>
+            </div>
+            <figcaption class="caption">The view sends intents, the view model emits events and the coordinator updates the navigation path.</figcaption>
+          </figure>
+          </div>
+        </header>
+
+        <div class="pg-wrap">
+          <div class="ar-layout">
+            <nav class="ar-toc" aria-label="On this page">
+            <p class="label">On this page</p>
+            <ol>
+              <li><a href="#what-the-c-adds">What the C adds</a></li>
+              <li><a href="#routes-and-the-coordinator">Routes and the coordinator</a></li>
+              <li><a href="#view-models-emit-events">View models emit events</a></li>
+              <li><a href="#wiring-with-combine">Wiring the two with Combine</a></li>
+              <li><a href="#testing-without-a-ui">Testing without a UI</a></li>
+              <li><a href="#mistakes-to-avoid">Mistakes to avoid</a></li>
+              <li><a href="#in-short">In short</a></li>
+            </ol>
+          </nav>
+
+            <div class="ar-prose" id="article-body">
+            <h2 id="what-the-c-adds">What the C adds</h2>
+            <p>MVVM splits a screen into three parts. The view draws state and forwards taps. The view model holds that state and the logic behind it. The model or service layer fetches and stores data. It works well until a tap has to open another screen.</p>
+            <p>The usual shortcut is a <code>NavigationLink</code> inside the view, or a view model that knows about the next screen. Both tie screens together: a list now knows how to build its detail view, and a unit test for the list has to cope with navigation it does not care about.</p>
+            <p>MVVM-C, which is MVVM with Coordinators, removes that coupling with one rule: nobody except the coordinator knows what comes next.</p>
+            <ul>
+              <li><strong>View:</strong> renders state and sends intents such as taps. It never creates another screen.</li>
+              <li><strong>View model:</strong> owns state and logic. It reports what happened as events, without saying where to go.</li>
+              <li><strong>Coordinator:</strong> listens to events, owns the navigation path and builds each screen with its dependencies.</li>
+            </ul>
+            <aside class="ar-callout">
+              <span class="label">Note</span>
+              <p>The examples target iOS 16 and later, where <code>NavigationStack</code> takes a path you can own. The same roles work with UIKit and older SwiftUI.</p>
+            </aside>
+
+            <h2 id="routes-and-the-coordinator">Routes and the coordinator</h2>
+            <p>Start by naming every destination as a value. A <code>Hashable</code> enum works with <code>NavigationStack</code>, survives state restoration and doubles as a deep-link format.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>AppCoordinator.swift</span></figcaption>
+              <pre tabindex="0"><code>enum Route: Hashable {
+    case detail(id: Int)
+    case settings
+}
+
+final class AppCoordinator: ObservableObject {
+    @Published var path: [Route] = []
+
+    func show(_ route: Route) { path.append(route) }
+    func pop() { _ = path.popLast() }
+    func popToRoot() { path.removeAll() }
+}</code></pre>
+            </figure>
+            <p>The coordinator is an <code>ObservableObject</code> because <code>NavigationStack</code> reads and writes its path through a binding. Anything that changes <code>path</code>, whether a tap, a deep link or a test, changes what is on screen.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>RootView.swift</span></figcaption>
+              <pre tabindex="0"><code>struct RootView: View {
+    @ObservedObject var coordinator: AppCoordinator
+
+    var body: some View {
+        NavigationStack(path: $coordinator.path) {
+            ListView(viewModel: coordinator.listViewModel)
+                .navigationDestination(for: Route.self) { route in
+                    coordinator.destination(for: route)
+                }
+        }
+    }
+}</code></pre>
+            </figure>
+
+            <h2 id="view-models-emit-events">View models emit events</h2>
+            <p>The list view model needs no idea that a detail screen exists. It publishes what happened and nothing else.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>ListViewModel.swift</span></figcaption>
+              <pre tabindex="0"><code>import Combine
+
+struct Item: Identifiable, Equatable {
+    let id: Int
+    let title: String
+}
+
+enum ListEvent: Equatable {
+    case didSelect(id: Int)
+    case didTapSettings
+}
+
+final class ListViewModel: ObservableObject {
+    @Published private(set) var items: [Item]
+    let events = PassthroughSubject&lt;ListEvent, Never&gt;()
+
+    init(items: [Item]) { self.items = items }
+
+    func select(_ item: Item) { events.send(.didSelect(id: item.id)) }
+    func settingsTapped() { events.send(.didTapSettings) }
+}</code></pre>
+            </figure>
+            <p><code>@Published</code> carries state to the view. A <code>PassthroughSubject</code> carries one-off events to the coordinator. Events are not state: a navigation request should fire once and be forgotten, not sit in a property that the next screen reads again.</p>
+
+            <h2 id="wiring-with-combine">Wiring the two with Combine</h2>
+            <p>The coordinator creates the view model, subscribes to its events and translates each one into a route.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>AppCoordinator.swift</span></figcaption>
+              <pre tabindex="0"><code>import Combine
+
+final class AppCoordinator: ObservableObject {
+    @Published var path: [Route] = []
+
+    // Load the items from your repository in a real app.
+    let listViewModel = ListViewModel(items: [])
+    private var cancellables = Set&lt;AnyCancellable&gt;()
+
+    init() {
+        listViewModel.events
+            .sink { [weak self] event in self?.handle(event) }
+            .store(in: &amp;cancellables)
+    }
+
+    private func handle(_ event: ListEvent) {
+        switch event {
+        case .didSelect(let id): show(.detail(id: id))
+        case .didTapSettings: show(.settings)
+        }
+    }
+
+    func show(_ route: Route) { path.append(route) }
+}</code></pre>
+            </figure>
+            <p>Detail screens are built when the route is shown. The coordinator hands each one its dependencies, and the view creates its view model through <code>StateObject</code>.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>DetailView.swift</span></figcaption>
+              <pre tabindex="0"><code>extension AppCoordinator {
+    @ViewBuilder
+    func destination(for route: Route) -&gt; some View {
+        switch route {
+        case .detail(let id):
+            DetailView(viewModel: DetailViewModel(id: id))
+        case .settings:
+            SettingsView()
+        }
+    }
+}
+
+final class DetailViewModel: ObservableObject {
+    let id: Int
+    init(id: Int) { self.id = id }
+}
+
+struct DetailView: View {
+    @StateObject private var viewModel: DetailViewModel
+
+    init(viewModel: @autoclosure @escaping () -&gt; DetailViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel())
+    }
+
+    var body: some View {
+        Text("Item \(viewModel.id)")
+    }
+}</code></pre>
+            </figure>
+            <p>SwiftUI can call <code>destination(for:)</code> many times. Passing the view model through an autoclosure into <code>StateObject</code> means it is built once for the life of the screen, not on every refresh.</p>
+
+            <h2 id="testing-without-a-ui">Testing without a UI</h2>
+            <p>Both halves test with plain XCTest and no view hierarchy. The view model test checks the event. The coordinator test checks the route.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>Swift</span><span>NavigationTests.swift</span></figcaption>
+              <pre tabindex="0"><code>import XCTest
+import Combine
+
+final class NavigationTests: XCTestCase {
+    func test_selectingAnItemEmitsDidSelect() {
+        let item = Item(id: 7, title: "Seven")
+        let sut = ListViewModel(items: [item])
+        var received: [ListEvent] = []
+        let cancellable = sut.events.sink { received.append($0) }
+
+        sut.select(item)
+
+        XCTAssertEqual(received, [.didSelect(id: 7)])
+        cancellable.cancel()
+    }
+
+    func test_didSelectPushesTheDetailRoute() {
+        let sut = AppCoordinator()
+
+        sut.listViewModel.select(Item(id: 7, title: "Seven"))
+
+        XCTAssertEqual(sut.path, [.detail(id: 7)])
+    }
+}</code></pre>
+            </figure>
+            <p>Deep links get the same treatment: parse a URL into <code>[Route]</code>, assign it to <code>path</code> and assert on the result.</p>
+
+            <h2 id="mistakes-to-avoid">Mistakes to avoid</h2>
+            <ol>
+              <li><strong>Building view models in <code>body</code>.</strong> A view model created inside <code>body</code> is recreated on every refresh and loses its state. Create it once, in the coordinator or inside the <code>StateObject</code> autoclosure.</li>
+              <li><strong>Strong references in sink closures.</strong> The coordinator owns the subscription, and the closure points back at the coordinator. Capture <code>[weak self]</code>.</li>
+              <li><strong>One giant route enum.</strong> When a flow such as sign-up or checkout has its own steps, give it a child coordinator with its own path and let it report back when it finishes.</li>
+              <li><strong>Treating events as state.</strong> If a screen only works when a <code>@Published</code> flag flips, you have rebuilt the problem MVVM-C removes. Use a subject for one-off events.</li>
+            </ol>
+            <aside class="ar-callout">
+              <span class="label">Threading</span>
+              <p>A <code>PassthroughSubject</code> delivers on the thread that calls <code>send</code>, and <code>path</code> drives the UI. Keep these types on the main actor, or add <code>.receive(on: DispatchQueue.main)</code> before the sink.</p>
+            </aside>
+
+            <h2 id="in-short">In short</h2>
+            <p>Give each role one job: views render, view models decide, the coordinator navigates. You get screens that preview and test in isolation, navigation you can drive from a deep link, and flows you can rearrange without touching a single view.</p>
+            <p>Next: carrying this architecture over to Dart in <a href="../ios-to-flutter/">From iOS to Flutter: what carries over and what does not</a>.</p>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="ar-end" aria-label="After the article">
+        <div class="pg-wrap ar-end__in">
+          <section class="hf-panel" aria-label="About the author">
+            <div class="ar-author">
+              <h2 class="heading-lg">About the author</h2>
+              <p class="body">Soufiane H. is an iOS and Flutter developer in Casablanca who designs, builds and publishes mobile apps for iOS and Android.</p>
+              <div class="ar-author__links">
+                <a class="hf-btn hf-btn--ghost hf-btn--sm" href="https://www.linkedin.com/in/shobaizi/" target="_blank" rel="noopener"><span class="hf-btn__prompt" aria-hidden="true">&gt;</span><span>LinkedIn</span></a>
+                <a class="hf-btn hf-btn--ghost hf-btn--sm" href="https://github.com/henaifous" target="_blank" rel="noopener"><span class="hf-btn__prompt" aria-hidden="true">&gt;</span><span>GitHub</span></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="hf-panel" aria-label="Keep reading">
+            <h2 class="heading-lg">Keep reading</h2>
+            <ul class="ar-rel">
+            <li><a href="../ios-to-flutter/"><span><span class="heading-md">From iOS to Flutter: what carries over and what does not</span><span class="caption">Flutter, 7 min read</span></span><span class="ar-go" aria-hidden="true">&gt;</span></a></li>
+            <li><a href="../svg-stroke-dashoffset/"><span><span class="heading-md">Draw a route with SVG stroke-dashoffset</span><span class="caption">Web, 6 min read</span></span><span class="ar-go" aria-hidden="true">&gt;</span></a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pg-footer">
+      <div class="pg-wrap pg-footer__in">
+        <a class="pg-brand" href="../../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav aria-label="Footer">
+          <a href="../../">Home</a>
+          <a href="../">Writing</a>
+          <a href="https://www.linkedin.com/in/shobaizi/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/henaifous" rel="noopener">GitHub</a>
+          <a href="https://www.instagram.com/shobaizi/" rel="noopener">Instagram</a>
+        </nav>
+        <p class="caption">&copy; 2026 Soufiane H. &middot; Casablanca, Morocco</p>
+      </div>
+    </footer>
+
+    <script src="../../assets/js/main.js" defer></script>
+  </body>
+</html>
