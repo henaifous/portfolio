@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Soufiane H. | Notes on iOS, Flutter and shipping mobile</title>
+    <link>https://henaifuos.com/blog/</link>
+    <description>Technical posts from production work: architecture, testing and what changes when you move between native and cross-platform.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 24 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://henaifuos.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MVVM-C with SwiftUI and Combine: navigation that stays testable</title>
+      <link>https://henaifuos.com/blog/mvvm-c-swiftui-combine/</link>
+      <guid isPermaLink="true">https://henaifuos.com/blog/mvvm-c-swiftui-combine/</guid>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Keep SwiftUI screens small and unit tests simple: a coordinator owns navigation, view models emit events and Combine connects the two.</description>
+    </item>
+    <item>
+      <title>From iOS to Flutter: what carries over and what does not</title>
+      <link>https://henaifuos.com/blog/ios-to-flutter/</link>
+      <guid isPermaLink="true">https://henaifuos.com/blog/ios-to-flutter/</guid>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+      <description>A practical map for iOS developers learning Flutter: SwiftUI views and widgets, state, navigation, async code, testing and where habits break.</description>
+    </item>
+    <item>
+      <title>Draw a route with SVG stroke-dashoffset</title>
+      <link>https://henaifuos.com/blog/svg-stroke-dashoffset/</link>
+      <guid isPermaLink="true">https://henaifuos.com/blog/svg-stroke-dashoffset/</guid>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Animate any SVG path drawing itself with stroke-dasharray, stroke-dashoffset and pathLength, plus a reduced-motion fallback in a few lines of CSS.</description>
+    </item>
+  </channel>
+</rss>
