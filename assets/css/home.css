@@ -94,8 +94,6 @@ html.js .pg-work.is-in .pg-enddot { animation: pg-fade var(--dur-base) var(--eas
 html.js .pg-work.is-in .pg-halo { animation: pg-halo var(--dur-base) var(--ease-out) 2300ms both; }
 html.js .pg-svc.is-in .pg-draw { animation: pg-dash 1400ms var(--ease-in-out) both; animation-delay: calc(var(--k, 0) * 200ms + 200ms); }
 
-/* Writing */
-.pg-writing { margin-top: var(--space-12); }
 .pg-link:hover .pg-go { transform: translateX(4px); }
 
 /* Experience */
