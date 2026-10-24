@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Writing: Notes on iOS, Flutter and Mobile | Soufiane H.</title>
+    <meta
+      name="description"
+      content="Technical posts by Soufiane H. on SwiftUI architecture, moving from iOS to Flutter and animating SVG: practical notes from production mobile work."
+    />
+    <link rel="canonical" href="https://henaifuos.com/blog/" />
+    <meta name="author" content="Soufiane H." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#060706" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="henaifuos.com" />
+    <meta property="og:title" content="Writing: Notes on iOS, Flutter and Mobile | Soufiane H." />
+    <meta
+      property="og:description"
+      content="Technical posts on SwiftUI architecture, moving from iOS to Flutter and animating SVG."
+    />
+    <meta property="og:url" content="https://henaifuos.com/blog/" />
+    <meta property="og:image" content="https://henaifuos.com/assets/img/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Soufiane H., iOS and Flutter developer, with a Design, Develop, Publish illustration" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Writing: Notes on iOS, Flutter and Mobile | Soufiane H." />
+    <meta
+      name="twitter:description"
+      content="Technical posts on SwiftUI architecture, moving from iOS to Flutter and animating SVG."
+    />
+    <meta name="twitter:image" content="https://henaifuos.com/assets/img/og-card.png" />
+
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Soufiane H. writing" href="../feed.xml" />
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var mode = localStorage.getItem("site-theme-mode");
+          root.setAttribute("data-theme", mode === "light" ? "light" : "dark");
+        } catch (error) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/article.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Blog",
+            "@id": "https://henaifuos.com/blog/#blog",
+            "url": "https://henaifuos.com/blog/",
+            "name": "Notes on iOS, Flutter and shipping mobile",
+            "description": "Technical posts from production work: architecture, testing and what changes when you move between native and cross-platform.",
+            "inLanguage": "en",
+            "publisher": { "@type": "Person", "name": "Soufiane H.", "url": "https://henaifuos.com/" },
+            "blogPost": [
+              {
+                "@type": "BlogPosting",
+                "headline": "MVVM-C with SwiftUI and Combine: navigation that stays testable",
+                "url": "https://henaifuos.com/blog/mvvm-c-swiftui-combine/",
+                "datePublished": "2026-10-24"
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "From iOS to Flutter: what carries over and what does not",
+                "url": "https://henaifuos.com/blog/ios-to-flutter/",
+                "datePublished": "2026-10-24"
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Draw a route with SVG stroke-dashoffset",
+                "url": "https://henaifuos.com/blog/svg-stroke-dashoffset/",
+                "datePublished": "2026-10-24"
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://henaifuos.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Writing" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="pg-root">
+    <a class="pg-skip" href="#main-content">Skip to content</a>
+
+    <header class="pg-header">
+      <div class="pg-wrap pg-header__in">
+        <a class="pg-brand" href="../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav class="pg-nav" aria-label="Primary">
+          <a href="../">Home</a>
+          <a href="../#works">Works</a>
+          <a href="./" aria-current="page">Writing</a>
+          <a href="../#contact">Contact</a>
+        </nav>
+        <div class="pg-theme" role="group" aria-label="Color theme">
+          <button type="button" data-theme-option="dark" aria-pressed="true">Dark</button>
+          <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+        </div>
+      </div>
+      <span class="pg-progress" aria-hidden="true"></span>
+    </header>
+
+    <main id="main-content">
+      <section class="ar-hero" aria-labelledby="blog-title">
+        <div class="ar-hero__grid" aria-hidden="true"></div>
+        <div class="ar-hero__glow" aria-hidden="true"></div>
+        <div class="pg-wrap ar-hero__in">
+          <nav class="ar-crumbs" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="../">Home</a></li>
+              <li aria-current="page">Writing</li>
+            </ol>
+          </nav>
+          <p class="hf-label label"><span class="hf-label__prompt" aria-hidden="true">&gt;_</span> Writing</p>
+          <h1 class="ar-title" id="blog-title">Notes on iOS, Flutter and shipping mobile.</h1>
+          <p class="body-lg ar-lead">Technical posts from production work: architecture, testing and what changes when you move between native and cross-platform.</p>
+        </div>
+      </section>
+
+      <section class="pg-section" aria-labelledby="all-posts-title">
+        <div class="pg-wrap">
+          <section class="hf-panel" aria-labelledby="all-posts-title">
+            <header class="hf-panel__head">
+              <div><h2 class="hf-panel__title heading-lg" id="all-posts-title">All posts</h2></div>
+            </header>
+            <div class="pg-posts">
+              <article class="pg-post">
+                <div class="pg-post__tag"><span class="hf-pill">Swift</span></div>
+                <div class="pg-post__body">
+                  <h3 class="heading-md"><a href="mvvm-c-swiftui-combine/">MVVM-C with SwiftUI and Combine: navigation that stays testable</a></h3>
+                  <p class="body">How a coordinator layer keeps SwiftUI screens small and unit tests simple.</p>
+                </div>
+                <div class="pg-post__meta"><time class="caption" datetime="2026-10-24">24 Oct 2026</time><span class="caption">6 min read</span><span class="pg-go" aria-hidden="true">&gt;</span></div>
+              </article>
+              <article class="pg-post">
+                <div class="pg-post__tag"><span class="hf-pill">Flutter</span></div>
+                <div class="pg-post__body">
+                  <h3 class="heading-md"><a href="ios-to-flutter/">From iOS to Flutter: what carries over and what does not</a></h3>
+                  <p class="body">A practical map for iOS developers learning Flutter: widgets, state, navigation, async code and testing.</p>
+                </div>
+                <div class="pg-post__meta"><time class="caption" datetime="2026-10-24">24 Oct 2026</time><span class="caption">7 min read</span><span class="pg-go" aria-hidden="true">&gt;</span></div>
+              </article>
+              <article class="pg-post">
+                <div class="pg-post__tag"><span class="hf-pill">Web</span></div>
+                <div class="pg-post__body">
+                  <h3 class="heading-md"><a href="svg-stroke-dashoffset/">Draw a route with SVG stroke-dashoffset</a></h3>
+                  <p class="body">The animation behind the line drawings on this site, in a few lines of CSS.</p>
+                </div>
+                <div class="pg-post__meta"><time class="caption" datetime="2026-10-24">24 Oct 2026</time><span class="caption">6 min read</span><span class="pg-go" aria-hidden="true">&gt;</span></div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pg-footer">
+      <div class="pg-wrap pg-footer__in">
+        <a class="pg-brand" href="../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav aria-label="Footer">
+          <a href="../">Home</a>
+          <a href="../#works">Works</a>
+          <a href="https://www.linkedin.com/in/shobaizi/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/henaifous" rel="noopener">GitHub</a>
+          <a href="https://www.instagram.com/shobaizi/" rel="noopener">Instagram</a>
+        </nav>
+        <p class="caption">&copy; 2026 Soufiane H. &middot; Casablanca, Morocco</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>
