@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Draw an SVG Route with stroke-dashoffset: A Short Guide</title>
+    <meta name="description" content="Animate any SVG path drawing itself with stroke-dasharray, stroke-dashoffset and pathLength, plus a reduced-motion fallback in a few lines of CSS." />
+    <link rel="canonical" href="https://henaifuos.com/blog/svg-stroke-dashoffset/" />
+    <meta name="author" content="Soufiane H." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#060706" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="henaifuos.com" />
+    <meta property="og:title" content="Draw an SVG Route with stroke-dashoffset: A Short Guide" />
+    <meta property="og:description" content="Animate any SVG path drawing itself with stroke-dasharray, stroke-dashoffset and pathLength, plus a reduced-motion fallback in a few lines of CSS." />
+    <meta property="og:url" content="https://henaifuos.com/blog/svg-stroke-dashoffset/" />
+    <meta property="og:image" content="https://henaifuos.com/assets/img/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Soufiane H., iOS and Flutter developer, with a Design, Develop, Publish illustration" />
+    <meta property="article:published_time" content="2026-10-24" />
+    <meta property="article:author" content="https://henaifuos.com/" />
+    <meta property="article:tag" content="Web" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Draw an SVG Route with stroke-dashoffset: A Short Guide" />
+    <meta name="twitter:description" content="Animate any SVG path drawing itself with stroke-dasharray, stroke-dashoffset and pathLength, plus a reduced-motion fallback in a few lines of CSS." />
+    <meta name="twitter:image" content="https://henaifuos.com/assets/img/og-card.png" />
+
+    <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Soufiane H. writing" href="../../feed.xml" />
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var mode = localStorage.getItem("site-theme-mode");
+          root.setAttribute("data-theme", mode === "light" ? "light" : "dark");
+        } catch (error) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../../assets/css/components.css" />
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/article.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://henaifuos.com/blog/svg-stroke-dashoffset/#article",
+            "headline": "Draw a route with SVG stroke-dashoffset",
+            "description": "Animate any SVG path drawing itself with stroke-dasharray, stroke-dashoffset and pathLength, plus a reduced-motion fallback in a few lines of CSS.",
+            "datePublished": "2026-10-24",
+            "dateModified": "2026-10-24",
+            "inLanguage": "en",
+            "keywords": "SVG animation, stroke-dashoffset, stroke-dasharray, pathLength, CSS animation, prefers-reduced-motion",
+            "image": "https://henaifuos.com/assets/img/og-card.png",
+            "mainEntityOfPage": "https://henaifuos.com/blog/svg-stroke-dashoffset/",
+            "author": {
+              "@type": "Person",
+              "name": "Soufiane H.",
+              "url": "https://henaifuos.com/"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Soufiane H.",
+              "url": "https://henaifuos.com/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://henaifuos.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Writing",
+                "item": "https://henaifuos.com/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Draw a route with SVG stroke-dashoffset"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="pg-root">
+    <a class="pg-skip" href="#article-body">Skip to the article</a>
+
+    <header class="pg-header">
+      <div class="pg-wrap pg-header__in">
+        <a class="pg-brand" href="../../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav class="pg-nav" aria-label="Primary">
+          <a href="../../">Home</a>
+          <a href="../../#works">Works</a>
+          <a href="../">Writing</a>
+          <a href="../../#contact">Contact</a>
+        </nav>
+        <div class="pg-theme" role="group" aria-label="Color theme">
+          <button type="button" data-theme-option="dark" aria-pressed="true">Dark</button>
+          <button type="button" data-theme-option="light" aria-pressed="false">Light</button>
+        </div>
+      </div>
+      <span class="pg-progress" aria-hidden="true"></span>
+    </header>
+
+    <main id="main-content">
+      <article>
+        <header class="ar-hero">
+          <div class="ar-hero__grid" aria-hidden="true"></div>
+          <div class="ar-hero__glow" aria-hidden="true"></div>
+          <div class="pg-wrap ar-hero__in">
+            <nav class="ar-crumbs" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="../../">Home</a></li>
+                <li><a href="../">Writing</a></li>
+                <li aria-current="page">Draw a route with SVG stroke-dashoffset</li>
+              </ol>
+            </nav>
+            <span class="hf-pill">Web</span>
+            <h1 class="ar-title">Draw a route with SVG stroke-dashoffset</h1>
+            <p class="body-lg ar-lead">A path that draws itself is one of the cheapest, cleanest animations on the web: no library, no canvas, a few lines of CSS. This guide builds one from the smallest version up to a colored route with a dot riding its head.</p>
+            <p class="ar-meta caption">
+              <span>By <strong>Soufiane H.</strong></span>
+              <time datetime="2026-10-24">24 Oct 2026</time>
+              <span>6 min read</span>
+            </p>
+
+            <figure class="ar-cover">
+            <svg class="ar-route" viewBox="40 36 480 330" aria-hidden="true" focusable="false">
+              <path class="track" d="M96 300C70 264 76 210 118 186C170 156 210 168 252 140C300 108 336 64 398 68C462 72 500 122 486 176C474 220 440 232 446 270C452 308 410 334 360 332C300 330 262 306 214 316C160 328 118 330 96 300Z" />
+              <path class="trace" pathLength="1" d="M96 300C70 264 76 210 118 186C170 156 210 168 252 140C300 108 336 64 398 68C462 72 500 122 486 176C474 220 440 232 446 270C452 308 410 334 360 332C300 330 262 306 214 316C160 328 118 330 96 300Z" />
+              <circle class="halo" cx="96" cy="300" r="18" />
+              <circle class="dot" cx="96" cy="300" r="8" />
+            </svg>
+            <figcaption class="caption">One dash as long as the whole path, slid out of view and back.</figcaption>
+          </figure>
+          </div>
+        </header>
+
+        <div class="pg-wrap">
+          <div class="ar-layout">
+            <nav class="ar-toc" aria-label="On this page">
+            <p class="label">On this page</p>
+            <ol>
+              <li><a href="#the-trick">The trick</a></li>
+              <li><a href="#the-smallest-version">The smallest version</a></li>
+              <li><a href="#one-clock-for-line-and-dot">One clock for line and dot</a></li>
+              <li><a href="#color-the-route-by-segment">Color the route by segment</a></li>
+              <li><a href="#reduced-motion-and-no-js">Reduced motion and no JavaScript</a></li>
+              <li><a href="#keep-it-cheap-and-readable">Keep it cheap and readable</a></li>
+              <li><a href="#in-short">In short</a></li>
+            </ol>
+          </nav>
+
+            <div class="ar-prose" id="article-body">
+            <h2 id="the-trick">The trick</h2>
+            <p>A stroke can be dashed. <code>stroke-dasharray</code> sets the length of each dash and gap, and <code>stroke-dashoffset</code> slides that pattern along the path. Make one dash as long as the whole path, push it out of view with the offset, then animate the offset back to zero. The line appears to draw itself.</p>
+            <p>The only awkward part is knowing the length of the path. SVG has a shortcut: set <code>pathLength</code> and the browser treats the path as if it had that length, so every dash value is relative to it. With <code>pathLength="1"</code>, a dash of <code>1</code> is the whole path.</p>
+
+            <h2 id="the-smallest-version">The smallest version</h2>
+            <p>One path, a few declarations and a keyframe. No script.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>HTML</span><span>route.html</span></figcaption>
+              <pre tabindex="0"><code>&lt;svg viewBox="0 0 560 360" role="img" aria-label="A route from left to right"&gt;
+  &lt;path class="route" pathLength="1"
+        d="M40 300C120 80 240 80 320 200S480 330 520 100" /&gt;
+&lt;/svg&gt;</code></pre>
+            </figure>
+            <figure class="ar-code">
+              <figcaption class="label"><span>CSS</span><span>route.css</span></figcaption>
+              <pre tabindex="0"><code>.route {
+  fill: none;
+  stroke: #d4f463;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+  animation: draw 2.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}</code></pre>
+            </figure>
+            <p>The dasharray is <code>1 2</code>: a dash of one path length, then a gap of two. Because the gap is longer than the path, an offset of 1 hides the whole line, and a stray dot that some browsers paint at the end of a hidden path with round caps stays away.</p>
+            <aside class="ar-callout">
+              <span class="label">Note</span>
+              <p><code>pathLength</code> works on <code>path</code>, <code>line</code>, <code>circle</code>, <code>rect</code> and the other shape elements, so the same trick draws rings and outlines.</p>
+            </aside>
+
+            <h2 id="one-clock-for-line-and-dot">One clock for line and dot</h2>
+            <p>A dot that rides the head of the line must follow exactly the same timing. Two separate animations drift apart, so drive both from one clock. <code>getPointAtLength</code> returns the coordinates at any distance along the path.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>JavaScript</span><span>route.js</span></figcaption>
+              <pre tabindex="0"><code>const route = document.querySelector('.route');
+const dot = document.querySelector('.dot');
+const length = route.getTotalLength();
+const duration = 2800;
+const ease = (t) =&gt; (t &lt; 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+let startTime;
+
+function frame(now) {
+  startTime ??= now;
+  const t = Math.min(1, (now - startTime) / duration);
+  const progress = ease(t);
+
+  route.style.strokeDashoffset = String(1 - progress);
+  const point = route.getPointAtLength(progress * length);
+  dot.setAttribute('transform', `translate(${point.x} ${point.y})`);
+
+  if (t &lt; 1) requestAnimationFrame(frame);
+}
+
+requestAnimationFrame(frame);</code></pre>
+            </figure>
+            <p><code>getTotalLength()</code> still returns the real length in user units, so the dot lands on the line even though the dashes use the normalized length. The script only touches <code>stroke-dashoffset</code> and one transform, which keeps the work on the cheap side of the browser's rendering pipeline.</p>
+
+            <h2 id="color-the-route-by-segment">Color the route by segment</h2>
+            <p>Stack several copies of the same path, each showing one slice, and reveal them together with a mask. Each segment is a dash of the slice's length, offset by minus its start. A thick white stroke inside the mask uncovers every segment from left to right as the line travels.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>HTML</span><span>segments.html</span></figcaption>
+              <pre tabindex="0"><code>&lt;svg viewBox="0 0 560 360" aria-hidden="true"&gt;
+  &lt;defs&gt;
+    &lt;mask id="reveal" maskUnits="userSpaceOnUse"
+          x="0" y="0" width="560" height="360"&gt;
+      &lt;path class="reveal" pathLength="1"
+            d="M40 300C120 80 240 80 320 200S480 330 520 100" /&gt;
+    &lt;/mask&gt;
+  &lt;/defs&gt;
+  &lt;g mask="url(#reveal)"&gt;
+    &lt;path class="segment" pathLength="100"
+          style="stroke: #5aa1f1; stroke-dasharray: 10 200; stroke-dashoffset: 0"
+          d="M40 300C120 80 240 80 320 200S480 330 520 100" /&gt;
+    &lt;path class="segment" pathLength="100"
+          style="stroke: #cbfd50; stroke-dasharray: 50 200; stroke-dashoffset: -10"
+          d="M40 300C120 80 240 80 320 200S480 330 520 100" /&gt;
+    &lt;path class="segment" pathLength="100"
+          style="stroke: #e9366e; stroke-dasharray: 40 200; stroke-dashoffset: -60"
+          d="M40 300C120 80 240 80 320 200S480 330 520 100" /&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;</code></pre>
+            </figure>
+            <figure class="ar-code">
+              <figcaption class="label"><span>CSS</span><span>segments.css</span></figcaption>
+              <pre tabindex="0"><code>.reveal {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 28;
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+  animation: draw 2.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.segment {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}</code></pre>
+            </figure>
+            <aside class="ar-callout">
+              <span class="label">Accessibility</span>
+              <p>Color alone should never carry meaning. If the segments stand for zones or speeds, label them in HTML next to the graphic, and mark the SVG itself <code>aria-hidden</code> when the text says everything it says.</p>
+            </aside>
+
+            <h2 id="reduced-motion-and-no-js">Reduced motion and no JavaScript</h2>
+            <p>People who ask their system for less motion should get the finished route straight away. And visitors or crawlers without JavaScript should never see an empty page. Add a <code>js</code> class to the root element with a one-line script, and apply the hidden starting state only under it.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>CSS</span><span>route.css</span></figcaption>
+              <pre tabindex="0"><code>.js .route {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .route {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}</code></pre>
+            </figure>
+            <p>For the scripted version, check the same preference before starting the clock and jump to the end state.</p>
+            <figure class="ar-code">
+              <figcaption class="label"><span>JavaScript</span><span>route.js</span></figcaption>
+              <pre tabindex="0"><code>if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  route.style.strokeDashoffset = '0';
+  const end = route.getPointAtLength(length);
+  dot.setAttribute('transform', `translate(${end.x} ${end.y})`);
+} else {
+  requestAnimationFrame(frame);
+}</code></pre>
+            </figure>
+
+            <h2 id="keep-it-cheap-and-readable">Keep it cheap and readable</h2>
+            <ul>
+              <li><strong>Animate the cheap properties.</strong> Stick to <code>stroke-dashoffset</code>, <code>transform</code> and <code>opacity</code>. Avoid animating the path data, widths or positions.</li>
+              <li><strong>Name the graphic or hide it.</strong> Give the SVG <code>role="img"</code> and an <code>aria-label</code> when it carries meaning, or <code>aria-hidden="true"</code> when it is decoration and the facts sit in nearby text.</li>
+              <li><strong>Put the information in HTML.</strong> Search engines and screen readers read text, not strokes. The route is a flourish; the distance, the time and the title belong in the markup.</li>
+              <li><strong>Play it once.</strong> A draw that plays once is easier on people and on batteries than one that repeats forever.</li>
+            </ul>
+
+            <h2 id="in-short">In short</h2>
+            <p>Set <code>pathLength</code>, hide the line with a dash that is longer than the path, animate the offset to zero and drive any rider from the same clock. It is a handful of lines, it respects reduced motion, and it leaves your content in the HTML where search engines and screen readers find it. The line drawings on this site use exactly this approach.</p>
+            <p>Next: keeping screens testable with <a href="../mvvm-c-swiftui-combine/">MVVM-C, SwiftUI and Combine</a>.</p>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="ar-end" aria-label="After the article">
+        <div class="pg-wrap ar-end__in">
+          <section class="hf-panel" aria-label="About the author">
+            <div class="ar-author">
+              <h2 class="heading-lg">About the author</h2>
+              <p class="body">Soufiane H. is an iOS and Flutter developer in Casablanca who designs, builds and publishes mobile apps for iOS and Android.</p>
+              <div class="ar-author__links">
+                <a class="hf-btn hf-btn--ghost hf-btn--sm" href="https://www.linkedin.com/in/shobaizi/" target="_blank" rel="noopener"><span class="hf-btn__prompt" aria-hidden="true">&gt;</span><span>LinkedIn</span></a>
+                <a class="hf-btn hf-btn--ghost hf-btn--sm" href="https://github.com/henaifous" target="_blank" rel="noopener"><span class="hf-btn__prompt" aria-hidden="true">&gt;</span><span>GitHub</span></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="hf-panel" aria-label="Keep reading">
+            <h2 class="heading-lg">Keep reading</h2>
+            <ul class="ar-rel">
+            <li><a href="../mvvm-c-swiftui-combine/"><span><span class="heading-md">MVVM-C with SwiftUI and Combine: navigation that stays testable</span><span class="caption">Swift, 6 min read</span></span><span class="ar-go" aria-hidden="true">&gt;</span></a></li>
+            <li><a href="../ios-to-flutter/"><span><span class="heading-md">From iOS to Flutter: what carries over and what does not</span><span class="caption">Flutter, 7 min read</span></span><span class="ar-go" aria-hidden="true">&gt;</span></a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pg-footer">
+      <div class="pg-wrap pg-footer__in">
+        <a class="pg-brand" href="../../" aria-label="henaifuos.com, home">henaifuos<span>.com</span></a>
+        <nav aria-label="Footer">
+          <a href="../../">Home</a>
+          <a href="../">Writing</a>
+          <a href="https://www.linkedin.com/in/shobaizi/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/henaifous" rel="noopener">GitHub</a>
+          <a href="https://www.instagram.com/shobaizi/" rel="noopener">Instagram</a>
+        </nav>
+        <p class="caption">&copy; 2026 Soufiane H. &middot; Casablanca, Morocco</p>
+      </div>
+    </footer>
+
+    <script src="../../assets/js/main.js" defer></script>
+  </body>
+</html>
